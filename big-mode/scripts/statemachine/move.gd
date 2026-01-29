@@ -1,6 +1,7 @@
 extends State
 
 @export var idle_state : State
+@export var fret_state: State
 @export var move_speed : float = 300
 @export var acceleration : float = 10
 
@@ -11,6 +12,8 @@ func enter() -> void:
 	super()
 
 func process_input(event: InputEvent) -> State:
+	if Input.is_action_just_pressed('press_fret'):
+		return fret_state
 	return null
 
 func process_physics(delta: float) -> State:

@@ -282,20 +282,25 @@ animation = &"MoveRight"
 script = ExtResource("5_d2wvv")
 starting_state = NodePath("Idle")
 
-[node name="Idle" type="Node" parent="StateMachine" unique_id=1546110334 node_paths=PackedStringArray("move_state", "hurt_state")]
+[node name="Idle" type="Node" parent="StateMachine" unique_id=1546110334 node_paths=PackedStringArray("move_state", "hurt_state", "fret_state")]
 script = ExtResource("6_3v2ag")
 move_state = NodePath("../Move")
 hurt_state = NodePath("../Hurt")
+fret_state = NodePath("../Fret")
 animation_name = "Idle"
 
-[node name="Move" type="Node" parent="StateMachine" unique_id=512689976 node_paths=PackedStringArray("idle_state")]
+[node name="Move" type="Node" parent="StateMachine" unique_id=512689976 node_paths=PackedStringArray("idle_state", "fret_state")]
 script = ExtResource("7_jej6c")
 idle_state = NodePath("../Idle")
+fret_state = NodePath("../Fret")
 animation_name = "MoveRight"
 
-[node name="Hurt" type="Node" parent="StateMachine" unique_id=2138639142]
+[node name="Hurt" type="Node" parent="StateMachine" unique_id=2138639142 node_paths=PackedStringArray("idle_state")]
 script = ExtResource("8_ur7pv")
+idle_state = NodePath("../Idle")
 animation_name = "Hurt"
 
-[node name="Fret" type="Node" parent="StateMachine" unique_id=1340349082]
+[node name="Fret" type="Node" parent="StateMachine" unique_id=1340349082 node_paths=PackedStringArray("idle_state", "move_state")]
 script = ExtResource("9_y4r1p")
+idle_state = NodePath("../Idle")
+move_state = NodePath("../Move")
