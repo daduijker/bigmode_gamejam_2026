@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://cy0r8w1xxw43v"]
+
+[ext_resource type="Texture2D" uid="uid://2sm8aim4vpfa" path="res://assets/guitar/guitar.png" id="1_mq804"]
+[ext_resource type="PackedScene" uid="uid://m480cebg2xf3" path="res://scenes/fret.tscn" id="2_8baca"]
+
+[node name="Guitar" type="Node2D" unique_id=722083871]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1420160707]
+texture = ExtResource("1_mq804")
+
+[node name="E1" parent="." unique_id=610971919 instance=ExtResource("2_8baca")]
+position = Vector2(-56, -85)
+
+[node name="A1" parent="." unique_id=524396156 instance=ExtResource("2_8baca")]
+position = Vector2(-19, -84)
+
+[node name="D1" parent="." unique_id=1062385191 instance=ExtResource("2_8baca")]
+position = Vector2(23, -87)
+
+[node name="G1" parent="." unique_id=1269010214 instance=ExtResource("2_8baca")]
+position = Vector2(60, -86)
+
+[node name="E2" parent="." unique_id=2072600530 instance=ExtResource("2_8baca")]
+position = Vector2(-60, -24)
+
+[node name="A2" parent="." unique_id=40490677 instance=ExtResource("2_8baca")]
+position = Vector2(-20, -23)
+
+[node name="D2" parent="." unique_id=1613416052 instance=ExtResource("2_8baca")]
+position = Vector2(26, -23)
+
+[node name="B2" parent="." unique_id=2122101770 instance=ExtResource("2_8baca")]
+position = Vector2(64, -22)
+
+[node name="E3" parent="." unique_id=1914718604 instance=ExtResource("2_8baca")]
+position = Vector2(-64, 50)
+
+[node name="A3" parent="." unique_id=1642838757 instance=ExtResource("2_8baca")]
+position = Vector2(-20, 48)
+
+[node name="D3" parent="." unique_id=1215700225 instance=ExtResource("2_8baca")]
+position = Vector2(28, 50)
+
+[node name="B3" parent="." unique_id=1552916726 instance=ExtResource("2_8baca")]
+position = Vector2(67, 49)
+
+[node name="E4" parent="." unique_id=368353855 instance=ExtResource("2_8baca")]
+position = Vector2(-69, 135)
+
+[node name="A4" parent="." unique_id=1663849565 instance=ExtResource("2_8baca")]
+position = Vector2(-21, 139)
+
+[node name="D4" parent="." unique_id=1193865028 instance=ExtResource("2_8baca")]
+position = Vector2(32, 140)
+
+[node name="B4" parent="." unique_id=1281211254 instance=ExtResource("2_8baca")]
+position = Vector2(77, 143)

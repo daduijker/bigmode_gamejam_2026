@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://ds2ym3jllebmb"]
+
+[ext_resource type="PackedScene" uid="uid://cy0r8w1xxw43v" path="res://scenes/guitar.tscn" id="1_yqjtg"]
+[ext_resource type="PackedScene" uid="uid://lxurl4xw4hiu" path="res://scenes/player.tscn" id="2_lnu2h"]
+
+[node name="Node2D" type="Node2D" unique_id=1940413511]
+
+[node name="Guitar" parent="." unique_id=722083871 instance=ExtResource("1_yqjtg")]
+position = Vector2(588, 414)
+
+[node name="Player" parent="." unique_id=1769393985 instance=ExtResource("2_lnu2h")]
+position = Vector2(496, 531)

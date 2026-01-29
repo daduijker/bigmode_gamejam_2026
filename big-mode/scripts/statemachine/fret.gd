@@ -5,6 +5,9 @@ extends State
 
 func enter() -> void:
 	parent.velocity = Vector2(0,0)
+	#if FretManager.selected_fret:
+	print_debug(FretManager.selected_fret)
+	
 	super()
 
 func process_input(event: InputEvent) -> State:

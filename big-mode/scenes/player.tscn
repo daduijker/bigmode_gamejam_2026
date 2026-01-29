@@ -13,22 +13,6 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_f1ej7"]
 radius = 4.1231055
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_oprun"]
-atlas = ExtResource("2_smehm")
-region = Rect2(0, 0, 80, 80)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_a8ls1"]
-atlas = ExtResource("2_smehm")
-region = Rect2(80, 0, 80, 80)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_qfm1y"]
-atlas = ExtResource("2_smehm")
-region = Rect2(160, 0, 80, 80)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_fulsm"]
-atlas = ExtResource("2_smehm")
-region = Rect2(240, 0, 80, 80)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_4r5pv"]
 atlas = ExtResource("3_ur7pv")
 region = Rect2(0, 80, 80, 80)
@@ -44,6 +28,22 @@ region = Rect2(160, 80, 80, 80)
 [sub_resource type="AtlasTexture" id="AtlasTexture_a38lo"]
 atlas = ExtResource("3_ur7pv")
 region = Rect2(240, 80, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oprun"]
+atlas = ExtResource("2_smehm")
+region = Rect2(0, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a8ls1"]
+atlas = ExtResource("2_smehm")
+region = Rect2(80, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qfm1y"]
+atlas = ExtResource("2_smehm")
+region = Rect2(160, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fulsm"]
+atlas = ExtResource("2_smehm")
+region = Rect2(240, 0, 80, 80)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4ni07"]
 atlas = ExtResource("4_y4r1p")
@@ -143,6 +143,23 @@ region = Rect2(560, 160, 80, 80)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_mx1m4"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4r5pv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_60mlk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i4ail")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a38lo")
+}],
+"loop": true,
+"name": &"Fret",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_oprun")
@@ -267,6 +284,7 @@ animations = [{
 
 [node name="Player" type="CharacterBody2D" unique_id=1769393985 groups=["player"]]
 scale = Vector2(2, 2)
+collision_layer = 3
 script = ExtResource("1_fjrip")
 
 [node name="PlayerShape" type="CollisionShape2D" parent="." unique_id=9133434]
@@ -276,7 +294,7 @@ shape = SubResource("CircleShape2D_f1ej7")
 [node name="Animations" type="AnimatedSprite2D" parent="." unique_id=283612141]
 position = Vector2(0.5, -7)
 sprite_frames = SubResource("SpriteFrames_mx1m4")
-animation = &"MoveRight"
+animation = &"Fret"
 
 [node name="StateMachine" type="Node" parent="." unique_id=516913697 node_paths=PackedStringArray("starting_state")]
 script = ExtResource("5_d2wvv")
@@ -304,3 +322,4 @@ animation_name = "Hurt"
 script = ExtResource("9_y4r1p")
 idle_state = NodePath("../Idle")
 move_state = NodePath("../Move")
+animation_name = "Fret"

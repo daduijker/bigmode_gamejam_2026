@@ -11,13 +11,18 @@ config_version=5
 [application]
 
 config/name="BigMode"
-run/main_scene="uid://lxurl4xw4hiu"
+run/main_scene="uid://ds2ym3jllebmb"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[autoload]
+
+FretManager="*uid://sqilivq2vadw"
 
 [global_group]
 
 player="Playable characters"
+fret="Group containing all frets"
 
 [input]
 
@@ -50,6 +55,7 @@ press_fret={
 [layer_names]
 
 2d_physics/layer_1="Player"
+2d_physics/layer_2="Fret"
 
 [physics]
 
