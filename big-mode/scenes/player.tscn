@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://c4ch7dmdjt8ql" path="res://scripts/statemachine/move.gd" id="7_jej6c"]
 [ext_resource type="Script" uid="uid://bwmfoj7hi82o4" path="res://scripts/statemachine/hurt.gd" id="8_ur7pv"]
 [ext_resource type="Script" uid="uid://1jhd2vxb2nbd" path="res://scripts/statemachine/fret.gd" id="9_y4r1p"]
+[ext_resource type="Script" uid="uid://hbmm71756hsv" path="res://scripts/fret_hitbox.gd" id="10_y4r1p"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_f1ej7"]
 radius = 4.1231055
@@ -282,7 +283,10 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Player" type="CharacterBody2D" unique_id=1769393985 groups=["player"]]
+[sub_resource type="CircleShape2D" id="CircleShape2D_ur7pv"]
+radius = 11.510864
+
+[node name="Player" type="CharacterBody2D" unique_id=1769393985 groups=["CanFretNote", "player"]]
 scale = Vector2(2, 2)
 collision_layer = 3
 script = ExtResource("1_fjrip")
@@ -323,3 +327,15 @@ script = ExtResource("9_y4r1p")
 idle_state = NodePath("../Idle")
 move_state = NodePath("../Move")
 animation_name = "Fret"
+
+[node name="FretHitbox" type="Area2D" parent="." unique_id=1132904246 node_paths=PackedStringArray("player")]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("10_y4r1p")
+player = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FretHitbox" unique_id=234584907]
+shape = SubResource("CircleShape2D_ur7pv")
+
+[connection signal="area_entered" from="FretHitbox" to="FretHitbox" method="_on_area_entered"]
+[connection signal="area_exited" from="FretHitbox" to="FretHitbox" method="_on_area_exited"]

@@ -23,6 +23,7 @@ FretManager="*uid://sqilivq2vadw"
 
 player="Playable characters"
 fret="Group containing all frets"
+CanFretNote="Objects and players that can fret notes"
 
 [input]
 
