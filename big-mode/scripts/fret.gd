@@ -3,7 +3,6 @@ class_name Fret
 
 @export var string : String
 @export var am_i_an_open_string : bool = false
-@export var fret_number : int
 @export var midi_code : int
 @export var collision_shape_2d: CollisionShape2D
 
