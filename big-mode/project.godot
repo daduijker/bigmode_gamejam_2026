@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="BigMode"
-run/main_scene="uid://ds2ym3jllebmb"
+run/main_scene="uid://b0ahb3vdixfoj"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
 
