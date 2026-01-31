@@ -21,23 +21,24 @@ func _unhandled_input(event: InputEvent) -> void:
 	return
 	
 func print_played_note(played_string: String) -> void:
-	var played_note : String = played_string + "0"
-	if find_fret(played_string, find_highest_fret(played_string)):
-		played_note = find_fret(played_string, find_highest_fret(played_string)).string \
-		 + str(find_fret(played_string, find_highest_fret(played_string)).fret_number)
-	print_debug(played_note)
+	var played_note : int = 0
+	played_note = find_highest_fret(played_string)
+	print_debug("Player played note: "+ str(played_note))
 	return
 
 func find_highest_fret(string: String) -> int:
-	var highest_fret : int = 0
+	# Return the highest selected fret on a string in MIDI code
+	var midi_code : int = 0
 	for fret in fret_list:
-		if fret.string == string and fret.fret_number > highest_fret and fret.is_active:
-			highest_fret = fret.fret_number
-	return highest_fret
+		if fret.string == string and fret.midi_code > midi_code:
+			if fret.is_active or fret.am_i_an_open_string:
+				midi_code = fret.midi_code
+	return midi_code
 	
-func find_fret(string: String, fret_number: int) -> Fret:
+func find_fret(midi_code: int) -> Fret:
+	# Return fret via MIDI code
 	for fret in fret_list: 
-		if fret.string == string and fret.fret_number == fret_number:
+		if fret.midi_code == midi_code:
 			return fret
 	return null
 
