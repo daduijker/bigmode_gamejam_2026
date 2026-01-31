@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://m480cebg2xf3"]
 
 [ext_resource type="Script" uid="uid://c5xm6hcne8x1e" path="res://scripts/fret.gd" id="1_lip1w"]
+[ext_resource type="Texture2D" uid="uid://bfxv2opkl45m7" path="res://icon.svg" id="2_lvl4t"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lip1w"]
 radius = 4.1231055
@@ -14,3 +15,8 @@ collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=847974206]
 shape = SubResource("CircleShape2D_lip1w")
+
+[node name="Icon" type="Sprite2D" parent="." unique_id=10710202]
+visible = false
+scale = Vector2(0.15625, 0.1328125)
+texture = ExtResource("2_lvl4t")

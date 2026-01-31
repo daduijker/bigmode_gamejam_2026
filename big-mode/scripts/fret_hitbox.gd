@@ -14,7 +14,7 @@ func unregister_fret(fret: Node2D):
 		registered_frets.remove_at(index)
 
 func _process(delta: float) -> void:
-	print_debug(selected_fret)
+	#print_debug(selected_fret)
 	if len(registered_frets) > 0:
 		registered_frets.sort_custom(_sort_by_distance_to_player)
 		selected_fret = registered_frets[0]

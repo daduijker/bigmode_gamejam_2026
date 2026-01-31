@@ -2,10 +2,12 @@ extends State
 
 @export var idle_state : State
 @export var max_hurt_time : float = 0.3
+@export var fret_hitbox: Area2D
 
 var hurt_time : float
 
 func enter() -> void:
+	fret_hitbox.selected_fret.deactivate_fret()
 	hurt_time = max_hurt_time
 	parent.velocity = Vector2(0,0)
 	print_debug('hurt')

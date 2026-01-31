@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cy0r8w1xxw43v" path="res://scenes/guitar.tscn" id="1_yqjtg"]
 [ext_resource type="PackedScene" uid="uid://lxurl4xw4hiu" path="res://scenes/player.tscn" id="2_lnu2h"]
+[ext_resource type="PackedScene" uid="uid://bn1orqsps041o" path="res://scenes/note_manager.tscn" id="3_lnu2h"]
 
 [node name="Node2D" type="Node2D" unique_id=1940413511]
 
@@ -10,3 +11,5 @@ position = Vector2(588, 414)
 
 [node name="Player" parent="." unique_id=1769393985 instance=ExtResource("2_lnu2h")]
 position = Vector2(496, 531)
+
+[node name="NoteManager" parent="." unique_id=1167454483 instance=ExtResource("3_lnu2h")]

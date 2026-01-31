@@ -322,10 +322,11 @@ script = ExtResource("8_ur7pv")
 idle_state = NodePath("../Idle")
 animation_name = "Hurt"
 
-[node name="Fret" type="Node" parent="StateMachine" unique_id=1340349082 node_paths=PackedStringArray("idle_state", "move_state")]
+[node name="Fret" type="Node" parent="StateMachine" unique_id=1340349082 node_paths=PackedStringArray("idle_state", "move_state", "fret_hitbox")]
 script = ExtResource("9_y4r1p")
 idle_state = NodePath("../Idle")
 move_state = NodePath("../Move")
+fret_hitbox = NodePath("../../FretHitbox")
 animation_name = "Fret"
 
 [node name="FretHitbox" type="Area2D" parent="." unique_id=1132904246 node_paths=PackedStringArray("player")]
