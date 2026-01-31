@@ -10,6 +10,6 @@
 position = Vector2(588, 414)
 
 [node name="Player" parent="." unique_id=1769393985 instance=ExtResource("2_lnu2h")]
-position = Vector2(496, 531)
+position = Vector2(507, 535)
 
 [node name="NoteManager" parent="." unique_id=1167454483 instance=ExtResource("3_lnu2h")]

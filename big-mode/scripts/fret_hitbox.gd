@@ -4,6 +4,8 @@ extends Area2D
 
 var registered_frets: Array[Node2D] = []
 var selected_fret: Node2D
+var last_activated_fret: Node2D
+
 
 func register_fret(fret: Node2D):
 	registered_frets.push_back(fret)
@@ -14,7 +16,7 @@ func unregister_fret(fret: Node2D):
 		registered_frets.remove_at(index)
 
 func _process(delta: float) -> void:
-	#print_debug(selected_fret)
+
 	if len(registered_frets) > 0:
 		registered_frets.sort_custom(_sort_by_distance_to_player)
 		selected_fret = registered_frets[0]

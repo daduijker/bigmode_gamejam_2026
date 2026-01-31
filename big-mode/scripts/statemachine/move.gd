@@ -11,6 +11,8 @@ var input : Vector2
 func enter() -> void:
 	if fret_hitbox.selected_fret:
 		fret_hitbox.selected_fret.deactivate_fret()
+	if fret_hitbox.last_activated_fret:
+		fret_hitbox.last_activated_fret.deactivate_fret()
 	parent.velocity = Vector2(0,0)
 	super()
 
