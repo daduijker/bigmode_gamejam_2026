@@ -1,10 +1,20 @@
 extends Node2D
 class_name Fret
 
+@export var string : String
+@export var fret_number : int
 
-func _on_fret_area_body_entered(body: Node2D) -> void:
-	FretManager.register_fret(self)
 
+@onready var is_active : bool = false
 
-func _on_fret_area_body_exited(body: Node2D) -> void:
-	FretManager.unregister_fret(self)
+@onready var icon: Sprite2D = $Icon
+
+func activate_fret() -> void:
+	is_active = true
+	icon.visible = true
+	return
+	
+func deactivate_fret() -> void:
+	is_active = false
+	icon.visible = false
+	return

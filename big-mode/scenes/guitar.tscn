@@ -10,48 +10,80 @@ texture = ExtResource("1_mq804")
 
 [node name="E1" parent="." unique_id=610971919 instance=ExtResource("2_8baca")]
 position = Vector2(-56, -85)
+string = "E"
+fret_number = 1
 
 [node name="A1" parent="." unique_id=524396156 instance=ExtResource("2_8baca")]
 position = Vector2(-19, -84)
+string = "A"
+fret_number = 1
 
 [node name="D1" parent="." unique_id=1062385191 instance=ExtResource("2_8baca")]
 position = Vector2(23, -87)
+string = "D"
+fret_number = 1
 
 [node name="G1" parent="." unique_id=1269010214 instance=ExtResource("2_8baca")]
 position = Vector2(60, -86)
+string = "G"
+fret_number = 1
 
 [node name="E2" parent="." unique_id=2072600530 instance=ExtResource("2_8baca")]
 position = Vector2(-60, -24)
+string = "E"
+fret_number = 2
 
 [node name="A2" parent="." unique_id=40490677 instance=ExtResource("2_8baca")]
 position = Vector2(-20, -23)
+string = "A"
+fret_number = 2
 
 [node name="D2" parent="." unique_id=1613416052 instance=ExtResource("2_8baca")]
 position = Vector2(26, -23)
+string = "D"
+fret_number = 2
 
-[node name="B2" parent="." unique_id=2122101770 instance=ExtResource("2_8baca")]
+[node name="G2" parent="." unique_id=2122101770 instance=ExtResource("2_8baca")]
 position = Vector2(64, -22)
+string = "G"
+fret_number = 2
 
 [node name="E3" parent="." unique_id=1914718604 instance=ExtResource("2_8baca")]
 position = Vector2(-64, 50)
+string = "E"
+fret_number = 3
 
 [node name="A3" parent="." unique_id=1642838757 instance=ExtResource("2_8baca")]
 position = Vector2(-20, 48)
+string = "A"
+fret_number = 3
 
 [node name="D3" parent="." unique_id=1215700225 instance=ExtResource("2_8baca")]
 position = Vector2(28, 50)
+string = "D"
+fret_number = 3
 
-[node name="B3" parent="." unique_id=1552916726 instance=ExtResource("2_8baca")]
+[node name="G3" parent="." unique_id=1552916726 instance=ExtResource("2_8baca")]
 position = Vector2(67, 49)
+string = "G"
+fret_number = 3
 
 [node name="E4" parent="." unique_id=368353855 instance=ExtResource("2_8baca")]
 position = Vector2(-69, 135)
+string = "E"
+fret_number = 4
 
 [node name="A4" parent="." unique_id=1663849565 instance=ExtResource("2_8baca")]
 position = Vector2(-21, 139)
+string = "A"
+fret_number = 4
 
 [node name="D4" parent="." unique_id=1193865028 instance=ExtResource("2_8baca")]
 position = Vector2(32, 140)
+string = "D"
+fret_number = 4
 
-[node name="B4" parent="." unique_id=1281211254 instance=ExtResource("2_8baca")]
+[node name="G4" parent="." unique_id=1281211254 instance=ExtResource("2_8baca")]
 position = Vector2(77, 143)
+string = "G"
+fret_number = 4
