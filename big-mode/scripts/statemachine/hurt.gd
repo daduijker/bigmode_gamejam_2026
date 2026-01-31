@@ -7,7 +7,8 @@ extends State
 var hurt_time : float
 
 func enter() -> void:
-	fret_hitbox.selected_fret.deactivate_fret()
+	if fret_hitbox.selected_fret:
+		fret_hitbox.selected_fret.deactivate_fret()
 	hurt_time = max_hurt_time
 	parent.velocity = Vector2(0,0)
 	print_debug('hurt')
