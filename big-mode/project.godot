@@ -11,18 +11,9 @@ config_version=5
 [application]
 
 config/name="BigMode"
-run/main_scene="uid://b0ahb3vdixfoj"
+run/main_scene="uid://ds2ym3jllebmb"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
-
-[autoload]
-
-FretManager="*uid://sqilivq2vadw"
-
-[editor]
-
-version_control/plugin_name="GitPlugin"
-version_control/autoload_on_startup=true
 
 [global_group]
 
