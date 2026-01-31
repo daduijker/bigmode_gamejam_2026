@@ -20,6 +20,6 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-
+# Take damage button for debugging purposes
 func _on_button_pressed() -> void:
 	take_damage(1) # Replace with function body.
