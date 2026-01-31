@@ -2,12 +2,15 @@ extends State
 
 @export var idle_state : State
 @export var fret_state: State
+@export var fret_hitbox: Area2D
 @export var move_speed : float = 300
 @export var acceleration : float = 10
 
 var input : Vector2
 
 func enter() -> void:
+	if fret_hitbox.selected_fret:
+		fret_hitbox.selected_fret.deactivate_fret()
 	parent.velocity = Vector2(0,0)
 	super()
 
