@@ -21,5 +21,6 @@ offset_left = 507.0
 offset_top = 535.0
 offset_right = 507.0
 offset_bottom = 535.0
+position = Vector2(507, 535)
 
 [node name="NoteManager" parent="." unique_id=1167454483 instance=ExtResource("3_lnu2h")]
