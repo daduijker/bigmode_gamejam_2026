@@ -1,8 +1,35 @@
 [gd_scene format=3 uid="uid://dkdcq4mfm5ga6"]
 
 [ext_resource type="Script" uid="uid://nrurlyqg7q81" path="res://scripts/hud.gd" id="1_fls4u"]
-[ext_resource type="Texture2D" uid="uid://bfxv2opkl45m7" path="res://icon.svg" id="1_qpvh6"]
+[ext_resource type="Texture2D" uid="uid://coa25a3v8fd4x" path="res://assets/HUD/plectrum_sheet.png" id="2_7hsmw"]
 [ext_resource type="PackedScene" uid="uid://q1fgrlh5ckch" path="res://scenes/game_manager.tscn" id="3_1etfg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nysna"]
+atlas = ExtResource("2_7hsmw")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f6qnu"]
+atlas = ExtResource("2_7hsmw")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_k4w17"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nysna")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f6qnu")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}]
 
 [node name="Hud" type="Control" unique_id=646021749]
 layout_mode = 3
@@ -16,23 +43,41 @@ script = ExtResource("1_fls4u")
 [node name="Life" type="CanvasLayer" parent="." unique_id=1139319836]
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Life" unique_id=1884831541]
-layout_direction = 2
-offset_left = 81.0
-offset_top = 61.0
-offset_right = 473.0
-offset_bottom = 189.0
+layout_direction = 4
+offset_left = 51.0
+offset_top = 46.0
+offset_right = 301.0
+offset_bottom = 176.0
 
-[node name="Plectrum" type="TextureRect" parent="Life/HBoxContainer" unique_id=1824249492]
+[node name="Life" type="TextureRect" parent="Life/HBoxContainer" unique_id=202061751]
+custom_minimum_size = Vector2(64, 0)
 layout_mode = 2
-texture = ExtResource("1_qpvh6")
 
-[node name="Plectrum2" type="TextureRect" parent="Life/HBoxContainer" unique_id=1610085992]
-layout_mode = 2
-texture = ExtResource("1_qpvh6")
+[node name="Plectrum" type="AnimatedSprite2D" parent="Life/HBoxContainer/Life" unique_id=1435262889]
+position = Vector2(51, 60)
+sprite_frames = SubResource("SpriteFrames_k4w17")
+frame = 1
+frame_progress = 1.0
 
-[node name="Plectrum3" type="TextureRect" parent="Life/HBoxContainer" unique_id=1622519561]
+[node name="Life2" type="TextureRect" parent="Life/HBoxContainer" unique_id=129697221]
+custom_minimum_size = Vector2(64, 0)
 layout_mode = 2
-texture = ExtResource("1_qpvh6")
+
+[node name="Plectrum" type="AnimatedSprite2D" parent="Life/HBoxContainer/Life2" unique_id=250873813]
+position = Vector2(51, 60)
+sprite_frames = SubResource("SpriteFrames_k4w17")
+frame = 1
+frame_progress = 1.0
+
+[node name="Life3" type="TextureRect" parent="Life/HBoxContainer" unique_id=860952826]
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+
+[node name="Plectrum" type="AnimatedSprite2D" parent="Life/HBoxContainer/Life3" unique_id=1463169547]
+position = Vector2(51, 60)
+sprite_frames = SubResource("SpriteFrames_k4w17")
+frame = 1
+frame_progress = 1.0
 
 [node name="GameManager" parent="." unique_id=1203229814 instance=ExtResource("3_1etfg")]
 

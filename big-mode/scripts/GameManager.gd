@@ -16,8 +16,9 @@ func take_damage(amount):
 
 func player_death():
 	print("lol, you died!")
+	await get_tree().create_timer(3, false).timeout
 	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
-
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
