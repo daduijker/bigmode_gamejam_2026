@@ -22,6 +22,7 @@ func _process(delta: float) -> void:
 
 
 func _sort_by_distance_to_player(area1: Node2D, area2: Node2D):
+	var player : CharacterBody2D = get_tree().get_first_node_in_group("player") # Temporary fix
 	var d_area1_to_player = player.global_position.distance_to(area1.global_position)
 	var d_area2_to_player = player.global_position.distance_to(area2.global_position)
 	return d_area1_to_player < d_area2_to_player

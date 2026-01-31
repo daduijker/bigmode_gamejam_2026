@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://q1fgrlh5ckch"]
+
+[ext_resource type="Script" uid="uid://dhwcy7n0vnn6" path="res://scripts/GameManager.gd" id="1_hwd4i"]
+
+[node name="GameManager" type="Node" unique_id=1203229814]
+script = ExtResource("1_hwd4i")
+
+[node name="Button" type="Button" parent="." unique_id=2105678839]
+offset_left = 57.0
+offset_top = 23.0
+offset_right = 250.28265
+offset_bottom = 127.599686
+text = "Damage Player (1)"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
