@@ -1,8 +1,8 @@
-[gd_scene format=3 uid="uid://dkdcq4mfm5ga6"]
+[gd_scene format=3 uid="uid://cms5nsh8tj5l2"]
 
-[ext_resource type="Script" uid="uid://nrurlyqg7q81" path="res://scripts/hud.gd" id="1_fls4u"]
+[ext_resource type="Script" path="res://scripts/hud.gd" id="1_fls4u"]
 [ext_resource type="Texture2D" uid="uid://bfxv2opkl45m7" path="res://icon.svg" id="1_qpvh6"]
-[ext_resource type="PackedScene" uid="uid://q1fgrlh5ckch" path="res://scenes/game_manager.tscn" id="3_1etfg"]
+[ext_resource type="PackedScene" path="res://scenes/game_manager.tscn" id="3_1etfg"]
 
 [node name="Hud" type="Control" unique_id=646021749]
 layout_mode = 3
