@@ -2,12 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://cy0r8w1xxw43v" path="res://scenes/guitar.tscn" id="1_yqjtg"]
 [ext_resource type="PackedScene" uid="uid://lxurl4xw4hiu" path="res://scenes/player.tscn" id="2_lnu2h"]
-<<<<<<< HEAD
-[ext_resource type="PackedScene" uid="uid://q1fgrlh5ckch" path="res://scenes/game_manager.tscn" id="3_lnu2h"]
-[ext_resource type="PackedScene" uid="uid://dkdcq4mfm5ga6" path="res://scenes/HUD.tscn" id="4_lbhrr"]
-=======
 [ext_resource type="PackedScene" uid="uid://bn1orqsps041o" path="res://scenes/note_manager.tscn" id="3_lnu2h"]
->>>>>>> main
+[ext_resource type="PackedScene" uid="uid://dkdcq4mfm5ga6" path="res://scenes/HUD.tscn" id="4_lbhrr"]
 
 [node name="Node2D" type="Node2D" unique_id=1940413511]
 
@@ -15,14 +11,15 @@
 position = Vector2(588, 414)
 
 [node name="Player" parent="." unique_id=1769393985 instance=ExtResource("2_lnu2h")]
-<<<<<<< HEAD
 position = Vector2(496, 531)
 
 [node name="GameManager" parent="." unique_id=1203229814 instance=ExtResource("3_lnu2h")]
+script = null
 
 [node name="Hud" parent="." unique_id=646021749 instance=ExtResource("4_lbhrr")]
-=======
-position = Vector2(507, 535)
+offset_left = 507.0
+offset_top = 535.0
+offset_right = 507.0
+offset_bottom = 535.0
 
 [node name="NoteManager" parent="." unique_id=1167454483 instance=ExtResource("3_lnu2h")]
->>>>>>> main
