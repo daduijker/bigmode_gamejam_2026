@@ -43,9 +43,9 @@ position = Vector2(26, -23)
 string = "D"
 fret_number = 2
 
-[node name="B2" parent="." unique_id=2122101770 instance=ExtResource("2_8baca")]
+[node name="G2" parent="." unique_id=2122101770 instance=ExtResource("2_8baca")]
 position = Vector2(64, -22)
-string = "B"
+string = "G"
 fret_number = 2
 
 [node name="E3" parent="." unique_id=1914718604 instance=ExtResource("2_8baca")]
@@ -63,9 +63,9 @@ position = Vector2(28, 50)
 string = "D"
 fret_number = 3
 
-[node name="B3" parent="." unique_id=1552916726 instance=ExtResource("2_8baca")]
+[node name="G3" parent="." unique_id=1552916726 instance=ExtResource("2_8baca")]
 position = Vector2(67, 49)
-string = "B"
+string = "G"
 fret_number = 3
 
 [node name="E4" parent="." unique_id=368353855 instance=ExtResource("2_8baca")]
@@ -83,7 +83,7 @@ position = Vector2(32, 140)
 string = "D"
 fret_number = 4
 
-[node name="B4" parent="." unique_id=1281211254 instance=ExtResource("2_8baca")]
+[node name="G4" parent="." unique_id=1281211254 instance=ExtResource("2_8baca")]
 position = Vector2(77, 143)
-string = "B"
+string = "G"
 fret_number = 4

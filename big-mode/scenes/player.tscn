@@ -311,10 +311,11 @@ hurt_state = NodePath("../Hurt")
 fret_state = NodePath("../Fret")
 animation_name = "Idle"
 
-[node name="Move" type="Node" parent="StateMachine" unique_id=512689976 node_paths=PackedStringArray("idle_state", "fret_state")]
+[node name="Move" type="Node" parent="StateMachine" unique_id=512689976 node_paths=PackedStringArray("idle_state", "fret_state", "fret_hitbox")]
 script = ExtResource("7_jej6c")
 idle_state = NodePath("../Idle")
 fret_state = NodePath("../Fret")
+fret_hitbox = NodePath("../../FretHitbox")
 animation_name = "MoveRight"
 
 [node name="Hurt" type="Node" parent="StateMachine" unique_id=2138639142 node_paths=PackedStringArray("idle_state")]
