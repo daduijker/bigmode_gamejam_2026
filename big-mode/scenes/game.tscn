@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://lxurl4xw4hiu" path="res://scenes/player.tscn" id="2_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://bn1orqsps041o" path="res://scenes/note_manager.tscn" id="3_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://dkdcq4mfm5ga6" path="res://scenes/HUD.tscn" id="4_lbhrr"]
+[ext_resource type="PackedScene" uid="uid://bekgc4cj4ko0s" path="res://scenes/lick_manager.tscn" id="5_iywne"]
 
 [node name="Node2D" type="Node2D" unique_id=1940413511]
 
@@ -21,6 +22,7 @@ offset_left = 507.0
 offset_top = 535.0
 offset_right = 507.0
 offset_bottom = 535.0
-position = Vector2(507, 535)
 
 [node name="NoteManager" parent="." unique_id=1167454483 instance=ExtResource("3_lnu2h")]
+
+[node name="LickManager" parent="." unique_id=1156586881 instance=ExtResource("5_iywne")]
