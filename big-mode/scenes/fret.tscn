@@ -2,12 +2,25 @@
 
 [ext_resource type="Script" uid="uid://c5xm6hcne8x1e" path="res://scripts/fret.gd" id="1_lip1w"]
 [ext_resource type="Texture2D" uid="uid://bfxv2opkl45m7" path="res://icon.svg" id="2_lvl4t"]
+[ext_resource type="Texture2D" uid="uid://citdodxqxjgge" path="res://assets/textures/blob_red.png" id="3_t71bf"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lip1w"]
 radius = 4.1231055
 
-[node name="Fret" type="Node2D" unique_id=610971919 groups=["fret"]]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_bb4nx"]
+particle_flag_disable_z = true
+emission_shape = 6
+emission_ring_axis = Vector3(0, 0, 1)
+emission_ring_height = 1.0
+emission_ring_radius = 22.0
+emission_ring_inner_radius = 22.0
+emission_ring_cone_angle = 90.0
+direction = Vector3(0, 0, 0)
+gravity = Vector3(0, 0, 0)
+
+[node name="Fret" type="Node2D" unique_id=610971919 node_paths=PackedStringArray("collision_shape_2d") groups=["fret"]]
 script = ExtResource("1_lip1w")
+collision_shape_2d = NodePath("Area2D/CollisionShape2D")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=189318898]
 collision_layer = 2
@@ -20,3 +33,12 @@ shape = SubResource("CircleShape2D_lip1w")
 visible = false
 scale = Vector2(0.15625, 0.1328125)
 texture = ExtResource("2_lvl4t")
+
+[node name="NoteExampleParticles" type="GPUParticles2D" parent="." unique_id=72094814]
+emitting = false
+amount = 100
+texture = ExtResource("3_t71bf")
+lifetime = 0.4
+one_shot = true
+preprocess = 0.1
+process_material = SubResource("ParticleProcessMaterial_bb4nx")

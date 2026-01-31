@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://bekgc4cj4ko0s"]
+
+[ext_resource type="Script" uid="uid://daj74wt7gkrto" path="res://scripts/lick_manager.gd" id="1_bpy31"]
+[ext_resource type="PackedScene" uid="uid://bdvkdv77fslji" path="res://addons/midi/ADSR.tscn" id="2_ldfup"]
+[ext_resource type="PackedScene" uid="uid://cuyd1qv0pn26e" path="res://addons/midi/MidiPlayer.tscn" id="3_s7rkn"]
+
+[node name="LickManager" type="Node" unique_id=1156586881]
+script = ExtResource("1_bpy31")
+
+[node name="ADSR" parent="." unique_id=1674578093 instance=ExtResource("2_ldfup")]
+
+[node name="MidiPlayer" parent="." unique_id=1576628824 instance=ExtResource("3_s7rkn")]
+file = "res://music/MIDI/test.mid"
+playing = true
+
+[connection signal="midi_event" from="MidiPlayer" to="." method="_on_midi_player_midi_event"]
