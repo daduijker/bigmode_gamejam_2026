@@ -6,10 +6,18 @@
 script = ExtResource("1_hwd4i")
 
 [node name="Button" type="Button" parent="." unique_id=2105678839]
-offset_left = 57.0
-offset_top = 23.0
-offset_right = 250.28265
-offset_bottom = 127.599686
+offset_left = 922.0
+offset_top = 26.0
+offset_right = 1115.2827
+offset_bottom = 130.59969
 text = "Damage Player (1)"
 
+[node name="Button2" type="Button" parent="." unique_id=1669297757]
+offset_left = 922.0
+offset_top = 140.0
+offset_right = 1115.2827
+offset_bottom = 244.59969
+text = "Damage Player (2)"
+
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
