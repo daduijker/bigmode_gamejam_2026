@@ -1,0 +1,9 @@
+res://scenes/candle.tscn
+res://scripts/globalscripts/interaction_manager.gd
+res://sprites/shaders/bucket.gdshader
+res://scripts/components/interactable_component.gd
+res://scenes/player.tscn
+res://scenes/level_1.tscn
+res://scenes/interaction_manager.tscn
+res://scenes/rock.tscn
+res://scenes/rock_fall.tscn
