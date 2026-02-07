@@ -29,6 +29,10 @@ autostart = true
 [node name="DmgCooldownTimer" type="Timer" parent="." unique_id=1942222755]
 one_shot = true
 
+[node name="TextTimer" type="Timer" parent="." unique_id=244229573]
+wait_time = 3.0
+one_shot = true
+
 [node name="PlayerSpawn" type="Node2D" parent="." unique_id=1260504997 groups=["PlayerSpawn"]]
 position = Vector2(599, 486)
 
@@ -42,3 +46,4 @@ position = Vector2(640, 485)
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
 [connection signal="timeout" from="NextLickTimer" to="." method="_on_next_lick_timer_timeout"]
+[connection signal="timeout" from="TextTimer" to="." method="_on_text_timer_timeout"]
