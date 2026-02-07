@@ -3,127 +3,159 @@
 [ext_resource type="Texture2D" uid="uid://2sm8aim4vpfa" path="res://assets/guitar/guitar.png" id="1_mq804"]
 [ext_resource type="PackedScene" uid="uid://m480cebg2xf3" path="res://scenes/fret.tscn" id="2_8baca"]
 
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_8baca"]
+normal = Vector2(0, 1)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_tlona"]
+distance = -162.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_g2qsy"]
+size = Vector2(73.15724, 414.72272)
+
 [node name="Guitar" type="Node2D" unique_id=722083871]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1420160707]
 texture = ExtResource("1_mq804")
 
-[node name="E0" parent="." unique_id=610971919 instance=ExtResource("2_8baca")]
+[node name="Frets" type="Node2D" parent="." unique_id=242123830]
+
+[node name="E0" parent="Frets" unique_id=610971919 instance=ExtResource("2_8baca")]
 position = Vector2(-55, -120)
 string = "E"
 am_i_an_open_string = true
 midi_code = 64
 
-[node name="A0" parent="." unique_id=779901296 instance=ExtResource("2_8baca")]
+[node name="A0" parent="Frets" unique_id=779901296 instance=ExtResource("2_8baca")]
 position = Vector2(-19, -117)
 string = "A"
 am_i_an_open_string = true
 midi_code = 69
 
-[node name="D0" parent="." unique_id=1205818418 instance=ExtResource("2_8baca")]
+[node name="D0" parent="Frets" unique_id=1205818418 instance=ExtResource("2_8baca")]
 position = Vector2(22, -121)
 string = "D"
 am_i_an_open_string = true
 midi_code = 74
 
-[node name="G0" parent="." unique_id=1933671623 instance=ExtResource("2_8baca")]
+[node name="G0" parent="Frets" unique_id=1933671623 instance=ExtResource("2_8baca")]
 position = Vector2(56, -119)
 string = "G"
 am_i_an_open_string = true
 midi_code = 79
 
-[node name="E1" parent="." unique_id=122332238 instance=ExtResource("2_8baca")]
+[node name="E1" parent="Frets" unique_id=122332238 instance=ExtResource("2_8baca")]
 position = Vector2(-56, -85)
 string = "E"
-fret_number = 1
 midi_code = 65
 
-[node name="A1" parent="." unique_id=524396156 instance=ExtResource("2_8baca")]
+[node name="A1" parent="Frets" unique_id=524396156 instance=ExtResource("2_8baca")]
 position = Vector2(-19, -84)
 string = "A"
-fret_number = 1
 midi_code = 70
 
-[node name="D1" parent="." unique_id=1062385191 instance=ExtResource("2_8baca")]
+[node name="D1" parent="Frets" unique_id=1062385191 instance=ExtResource("2_8baca")]
 position = Vector2(23, -87)
 string = "D"
-fret_number = 1
 midi_code = 75
 
-[node name="G1" parent="." unique_id=1269010214 instance=ExtResource("2_8baca")]
+[node name="G1" parent="Frets" unique_id=1269010214 instance=ExtResource("2_8baca")]
 position = Vector2(60, -86)
 string = "G"
-fret_number = 1
 midi_code = 80
 
-[node name="E2" parent="." unique_id=2072600530 instance=ExtResource("2_8baca")]
+[node name="E2" parent="Frets" unique_id=2072600530 instance=ExtResource("2_8baca")]
 position = Vector2(-60, -24)
 string = "E"
-fret_number = 2
 midi_code = 66
 
-[node name="A2" parent="." unique_id=40490677 instance=ExtResource("2_8baca")]
+[node name="A2" parent="Frets" unique_id=40490677 instance=ExtResource("2_8baca")]
 position = Vector2(-20, -23)
 string = "A"
-fret_number = 2
 midi_code = 71
 
-[node name="D2" parent="." unique_id=1613416052 instance=ExtResource("2_8baca")]
+[node name="D2" parent="Frets" unique_id=1613416052 instance=ExtResource("2_8baca")]
 position = Vector2(26, -23)
 string = "D"
-fret_number = 2
 midi_code = 76
 
-[node name="G2" parent="." unique_id=2122101770 instance=ExtResource("2_8baca")]
+[node name="G2" parent="Frets" unique_id=2122101770 instance=ExtResource("2_8baca")]
 position = Vector2(64, -22)
 string = "G"
-fret_number = 2
 midi_code = 81
 
-[node name="E3" parent="." unique_id=1914718604 instance=ExtResource("2_8baca")]
+[node name="E3" parent="Frets" unique_id=1914718604 instance=ExtResource("2_8baca")]
 position = Vector2(-64, 50)
 string = "E"
-fret_number = 3
 midi_code = 67
 
-[node name="A3" parent="." unique_id=1642838757 instance=ExtResource("2_8baca")]
+[node name="A3" parent="Frets" unique_id=1642838757 instance=ExtResource("2_8baca")]
 position = Vector2(-20, 48)
 string = "A"
-fret_number = 3
 midi_code = 72
 
-[node name="D3" parent="." unique_id=1215700225 instance=ExtResource("2_8baca")]
+[node name="D3" parent="Frets" unique_id=1215700225 instance=ExtResource("2_8baca")]
 position = Vector2(28, 50)
 string = "D"
-fret_number = 3
 midi_code = 77
 
-[node name="G3" parent="." unique_id=1552916726 instance=ExtResource("2_8baca")]
+[node name="G3" parent="Frets" unique_id=1552916726 instance=ExtResource("2_8baca")]
 position = Vector2(67, 49)
 string = "G"
-fret_number = 3
 midi_code = 82
 
-[node name="E4" parent="." unique_id=368353855 instance=ExtResource("2_8baca")]
+[node name="E4" parent="Frets" unique_id=368353855 instance=ExtResource("2_8baca")]
 position = Vector2(-69, 135)
 string = "E"
-fret_number = 4
 midi_code = 68
 
-[node name="A4" parent="." unique_id=1663849565 instance=ExtResource("2_8baca")]
+[node name="A4" parent="Frets" unique_id=1663849565 instance=ExtResource("2_8baca")]
 position = Vector2(-21, 139)
 string = "A"
-fret_number = 4
 midi_code = 73
 
-[node name="D4" parent="." unique_id=1193865028 instance=ExtResource("2_8baca")]
+[node name="D4" parent="Frets" unique_id=1193865028 instance=ExtResource("2_8baca")]
 position = Vector2(32, 140)
 string = "D"
-fret_number = 4
 midi_code = 78
 
-[node name="G4" parent="." unique_id=1281211254 instance=ExtResource("2_8baca")]
+[node name="G4" parent="Frets" unique_id=1281211254 instance=ExtResource("2_8baca")]
 position = Vector2(77, 143)
 string = "G"
-fret_number = 4
 midi_code = 83
+
+[node name="Hitboxes" type="Node2D" parent="." unique_id=131972356]
+
+[node name="Upper Limit" type="StaticBody2D" parent="Hitboxes" unique_id=1757851089]
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitboxes/Upper Limit" unique_id=591349415]
+position = Vector2(-1, -117)
+shape = SubResource("WorldBoundaryShape2D_8baca")
+
+[node name="Lower Limit" type="StaticBody2D" parent="Hitboxes" unique_id=1745443296]
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitboxes/Lower Limit" unique_id=638760932]
+position = Vector2(-4, 63)
+shape = SubResource("WorldBoundaryShape2D_tlona")
+
+[node name="Fall Zones" type="Node2D" parent="." unique_id=238929978]
+
+[node name="Left Fall Zone" type="Area2D" parent="Fall Zones" unique_id=3879554 groups=["FallZone"]]
+position = Vector2(-81, -117)
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Fall Zones/Left Fall Zone" unique_id=139047173]
+position = Vector2(-71.965256, 147.86005)
+rotation = 0.12647383
+shape = SubResource("RectangleShape2D_g2qsy")
+
+[node name="Right Fall Zone" type="Area2D" parent="Fall Zones" unique_id=1904658331 groups=["FallZone"]]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Fall Zones/Right Fall Zone" unique_id=621366873]
+position = Vector2(153.99998, 31.999998)
+rotation = -0.1326081
+shape = SubResource("RectangleShape2D_g2qsy")

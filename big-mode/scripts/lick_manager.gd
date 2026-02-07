@@ -37,9 +37,11 @@ func start_new_lick() -> void:
 	connect_lick(select_lick(GameManager.difficulty, GameManager.difficulty_threshold))
 	
 func stop_lick() -> void:
-	playing_lick = false
-	midi_player.stop()
-	midi_timings = {}
+	if playing_lick:
+		playing_lick = false
+		midi_player.stop()
+		midi_timings = {}
+	
 
 func select_lick(difficulty_score, difficulty_threshold) -> Lick:
 	# Selects a lick with difficulty score +- threshold at random, or selects a random lick
