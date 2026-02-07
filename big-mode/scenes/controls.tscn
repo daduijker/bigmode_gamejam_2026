@@ -1,7 +1,10 @@
 [gd_scene format=3 uid="uid://xk63txwg4kwy"]
 
 [ext_resource type="Texture2D" uid="uid://cvw5ngj44kupf" path="res://assets/buttons/Keyboard Letters and Symbols.png" id="1_5tddo"]
+[ext_resource type="Script" uid="uid://bfxlnlvrsvy7n" path="res://scenes/controls.gd" id="1_jlst0"]
 [ext_resource type="Texture2D" uid="uid://0c1fdg7nsjad" path="res://assets/buttons/Keyboard Extras.png" id="2_cywyo"]
+[ext_resource type="Texture2D" uid="uid://ci6u3jv834reo" path="res://assets/menu/return_button.png" id="4_dloai"]
+[ext_resource type="Texture2D" uid="uid://w1ga6ya2xnwm" path="res://assets/menu/return_button_pressed.png" id="5_k6bol"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ihl6s"]
 atlas = ExtResource("1_5tddo")
@@ -57,6 +60,7 @@ offset_right = 16.0
 offset_bottom = 10.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_jlst0")
 
 [node name="CenterContainer" type="CenterContainer" parent="." unique_id=1310276903]
 layout_mode = 1
@@ -165,3 +169,14 @@ offset_bottom = 407.0
 [node name="TextureRect" type="TextureRect" parent="fret_buttons" unique_id=1335453581]
 layout_mode = 2
 texture = SubResource("AtlasTexture_qfrta")
+
+[node name="TextureButton" type="TextureButton" parent="." unique_id=1681872894]
+layout_mode = 0
+offset_left = 484.0
+offset_top = 396.0
+offset_right = 548.0
+offset_bottom = 436.0
+texture_normal = ExtResource("4_dloai")
+texture_pressed = ExtResource("5_k6bol")
+
+[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]
