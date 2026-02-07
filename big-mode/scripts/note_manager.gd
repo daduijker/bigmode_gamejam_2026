@@ -2,29 +2,29 @@ extends Node
 
 @onready var player : CharacterBody2D = get_tree().get_first_node_in_group("player")
 @onready var fret_list : Array[Node] = get_tree().get_nodes_in_group("fret")
+@onready var LickManager : Node = get_tree().get_first_node_in_group("LickManager")
 
 
 func _unhandled_input(event: InputEvent) -> void:
 	var played_string: String = ""
 	if Input.is_action_just_pressed('E_string'):
 		played_string = "E"
-		print_played_note(played_string)
+		player_played_note(played_string)
 	if Input.is_action_just_pressed('A_string'):
 		played_string = "A"
-		print_played_note(played_string)
+		player_played_note(played_string)
 	if Input.is_action_just_pressed('D_string'):
 		played_string = "D"
-		print_played_note(played_string)
+		player_played_note(played_string)
 	if Input.is_action_just_pressed('G_string'):
 		played_string = "G"
-		print_played_note(played_string)
+		player_played_note(played_string)
 	return
 	
-func print_played_note(played_string: String) -> void:
+func player_played_note(played_string: String) -> void:
 	var played_note : int = 0
 	played_note = find_highest_fret(played_string)
-	print_debug("Player played note: "+ str(played_note))
-	return
+	LickManager.player_played_note(played_note)
 
 func find_highest_fret(string: String) -> int:
 	# Return the highest selected fret on a string in MIDI code

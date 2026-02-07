@@ -7,6 +7,8 @@ class_name Fret
 @export var collision_shape_2d: CollisionShape2D
 
 @onready var note_example_particles: GPUParticles2D = $NoteExampleParticles
+@onready var note_play_particles: GPUParticles2D = $NotePlayParticles
+
 @onready var is_active : bool = false
 
 @onready var icon: Sprite2D = $Icon
@@ -27,3 +29,6 @@ func deactivate_fret() -> void:
 
 func play_example() -> void:
 	note_example_particles.emitting = true
+	
+func play_note() -> void:
+	note_play_particles.emitting = true

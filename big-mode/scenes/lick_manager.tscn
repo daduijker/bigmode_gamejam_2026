@@ -6,9 +6,10 @@
 [ext_resource type="PackedScene" uid="uid://bc4dax7jqj3da" path="res://scenes/lick.tscn" id="4_ldfup"]
 [ext_resource type="AudioStream" uid="uid://oslgjom4kfem" path="res://music/Synth_Tick_C_lo.wav" id="5_s7rkn"]
 
-[node name="LickManager" type="Node" unique_id=1156586881]
+[node name="LickManager" type="Node" unique_id=1156586881 groups=["LickManager"]]
 script = ExtResource("1_bpy31")
 difficulty_threshold = 2
+note_timing_threshold = 200
 
 [node name="ADSR" parent="." unique_id=1674578093 instance=ExtResource("2_ldfup")]
 

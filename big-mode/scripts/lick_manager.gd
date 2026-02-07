@@ -2,23 +2,45 @@ extends Node
 
 @onready var fret_list : Array[Node] = get_tree().get_nodes_in_group("fret")
 @onready var licks : Array[Node] = get_tree().get_nodes_in_group("lick")
+@onready var NoteManager : Node = get_tree().get_first_node_in_group("NoteManager")
 @onready var midi_player: MidiPlayer = $MidiPlayer
 @onready var metronome: AudioStreamPlayer2D = $Metronome
-
+@onready var midi_timings : Dictionary = {}
 
 @onready var difficulty : int = 0
 
 var parser = MidiFileParser.load_file("")
 var key_order = ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"]
+var time_passed : int
+var playing_lick : bool = false
 
 @export var difficulty_threshold : int
-
+@export var note_timing_threshold : int
 
 func _ready() -> void:
 	start_new_lick()
 	
+func _process(delta: float) -> void:
+	time_passed += delta * 1000
+	
+	# check if a note has been played too late:
+	if playing_lick:
+		for note in midi_timings:
+			if time_passed > note + note_timing_threshold:
+				# YOU MISSED A NOTE
+				print('YOU MISSED A NOTE')
+				print(note)
+				stop_lick()
+	
 func start_new_lick() -> void:
+	playing_lick = true
+	time_passed = 0
 	connect_lick(select_lick(difficulty, difficulty_threshold))
+	
+func stop_lick() -> void:
+	playing_lick = false
+	midi_player.stop()
+	midi_timings = {}
 
 func select_lick(difficulty_score, difficulty_threshold) -> Lick:
 	# Selects a lick with difficulty score +- threshold at random, or selects a random lick
@@ -37,6 +59,16 @@ func connect_lick(lick: Lick):
 	print(get_midi_timings(lick.bmp))
 	midi_player.file = lick.lick_midi
 	midi_player.play()
+
+func player_played_note(note : int) -> void:
+	for timing in midi_timings:
+		if time_passed - note_timing_threshold < timing and \
+		time_passed + note_timing_threshold > timing:
+			if midi_timings[timing] == note - 24:
+				for fret in fret_list:
+					if note == fret.midi_code:
+						fret.play_note()
+				midi_timings.erase(timing)
 
 func _on_midi_player_midi_event(channel: Variant, event: Variant) -> void:
 	# E4 to C6 are example notes (64 to 83)
@@ -64,8 +96,8 @@ func _on_midi_player_midi_event(channel: Variant, event: Variant) -> void:
 
 func get_midi_timings(bpm) -> Dictionary:
 	var tps = bpm * 480 / 60
+	midi_timings = {}
 	#print(tps)
-	var midi_timings : Dictionary = {}
 	for track in parser.tracks:
 		for event in track.events:
 			if event.event_type == 3:
