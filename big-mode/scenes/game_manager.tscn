@@ -22,8 +22,12 @@ offset_bottom = 244.59969
 text = "Damage Player (2)"
 
 [node name="NextLickTimer" type="Timer" parent="." unique_id=1523909438]
+wait_time = 4.0
 one_shot = true
 autostart = true
+
+[node name="DmgCooldownTimer" type="Timer" parent="." unique_id=1942222755]
+one_shot = true
 
 [connection signal="lose_health" from="." to="." method="_on_lose_health"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

@@ -56,21 +56,31 @@ func select_lick(difficulty_score, difficulty_threshold) -> Lick:
 func connect_lick(lick: Lick):
 	parser = MidiFileParser.load_file(lick.lick_midi)
 	print(get_midi_timings(lick.bmp))
+	print(lick)
 	midi_player.file = lick.lick_midi
 	midi_player.play()
 
 func player_played_note(note : int) -> void:
 	#print(time_passed)
+	var correct_input : bool = false
 	for timing in midi_timings:
 		if time_passed - GameManager.note_timing_threshold < timing and \
 		time_passed + GameManager.note_timing_threshold > timing:
 			#print(midi_timings[timing])
 			#print(note)
 			if midi_timings[timing] == note - 24:
-				for fret in fret_list:
-					if note == fret.midi_code:
-						fret.play_note()
 				midi_timings.erase(timing)
+				correct_input = true
+				
+	for fret in fret_list:
+		if note == fret.midi_code:
+			if correct_input:
+				fret.play_note()
+			else:
+				fret.play_example()
+				
+	if not correct_input:
+		GameManager.lick_unsuccessful() 
 
 func _on_midi_player_midi_event(channel: Variant, event: Variant) -> void:
 	# E4 to C6 are example notes (64 to 83)

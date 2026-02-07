@@ -1,6 +1,8 @@
 extends Node
 @onready var next_lick_timer: Timer = $NextLickTimer
+@onready var dmg_cooldown_timer: Timer = $DmgCooldownTimer
 @onready var LickManager : Node = get_tree().get_first_node_in_group("LickManager")
+
 
 @onready var difficulty : int = 0
 @export var difficulty_threshold : int
@@ -24,7 +26,10 @@ func lick_successful() -> void:
 func lick_unsuccessful() -> void:
 	print_debug("Lick unsuccessful")
 	LickManager.stop_lick()
-	take_damage(1)
+	if dmg_cooldown_timer.time_left == 0:
+		take_damage(1)
+		
+	dmg_cooldown_timer.start()
 	next_lick_timer.start()
 
 
@@ -52,5 +57,5 @@ func _on_button_2_pressed() -> void:
 
 
 func _on_next_lick_timer_timeout() -> void:
-	print_debug("Starting a new lick")
+	#print_debug("Starting a new lick")
 	LickManager.start_new_lick()
