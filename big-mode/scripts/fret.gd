@@ -19,12 +19,12 @@ func _enter_tree() -> void:
 
 func activate_fret() -> void:
 	is_active = true
-	icon.visible = true
+	#icon.visible = true
 	return
 	
 func deactivate_fret() -> void:
 	is_active = false
-	icon.visible = false
+	#icon.visible = false
 	return
 
 func play_example() -> void:
