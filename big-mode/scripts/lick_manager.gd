@@ -1,18 +1,82 @@
 extends Node
 
 @onready var fret_list : Array[Node] = get_tree().get_nodes_in_group("fret")
+@onready var licks : Array[Node] = get_tree().get_nodes_in_group("lick")
+@onready var midi_player: MidiPlayer = $MidiPlayer
+@onready var metronome: AudioStreamPlayer2D = $Metronome
+
+
+@onready var difficulty : int = 0
+
+var parser = MidiFileParser.load_file("")
+var key_order = ["C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"]
+
+@export var difficulty_threshold : int
+
+
+func _ready() -> void:
+	start_new_lick()
+	
+func start_new_lick() -> void:
+	connect_lick(select_lick(difficulty, difficulty_threshold))
+
+func select_lick(difficulty_score, difficulty_threshold) -> Lick:
+	# Selects a lick with difficulty score +- threshold at random, or selects a random lick
+	var possible_licks = []
+	for lick in licks:
+		if lick.difficulty + difficulty_threshold < difficulty_score or \
+		lick.difficulty - difficulty_threshold:
+			possible_licks.append(lick)
+	if possible_licks:
+		return possible_licks.pick_random()
+	else: 
+		return licks.pick_random()
+
+func connect_lick(lick: Lick):
+	parser = MidiFileParser.load_file(lick.lick_midi)
+	print(get_midi_timings(lick.bmp))
+	midi_player.file = lick.lick_midi
+	midi_player.play()
 
 func _on_midi_player_midi_event(channel: Variant, event: Variant) -> void:
 	# E4 to C6 are example notes (64 to 83)
 	# E2 to C4 are notes that the player has to play (40-59)
+	# C#4 to D#4 are the count in
 	if channel.number == 0 and event.type == 144:
-		print(event['note'])
 		if event['note'] >= 64:
 			for fret in fret_list:
 				if event['note'] == fret.midi_code:
 					fret.play_example()
 			pass
 		
+		elif  event['note'] > 60 and event['note'] < 64:
+			metronome.play()
+			if event['note'] == 61:
+				print("3...")
+			if event['note'] == 62:
+				print("2...")
+			if event['note'] == 63:
+				print("1...")
+			
 		elif event['note'] <= 60: 
 			# listen for player inputs
 			pass
+
+func get_midi_timings(bpm) -> Dictionary:
+	var tps = bpm * 480 / 60
+	#print(tps)
+	var midi_timings : Dictionary = {}
+	for track in parser.tracks:
+		for event in track.events:
+			if event.event_type == 3:
+				if event.status == 9:
+					#print(event.status)
+					var timing : float = (event.absolute_ticks * 1000 / tps)
+					
+					#print(timing)
+					#print(event.absolute_ticks)
+					var note = (event.octave + 1) * 12 + key_order.find(event.key)
+					#print(note)
+					if note <= 60:
+						midi_timings[timing] = note
+	return midi_timings

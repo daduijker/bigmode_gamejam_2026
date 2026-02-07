@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bc4dax7jqj3da"]
+
+[ext_resource type="Script" uid="uid://ccptx3w8lr2a5" path="res://scripts/lick.gd" id="1_4je0b"]
+
+[node name="Lick" type="Node" unique_id=1460421846 groups=["lick"]]
+script = ExtResource("1_4je0b")
