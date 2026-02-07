@@ -30,6 +30,8 @@ NoteManager=""
 LickManager=""
 GameManager=""
 FallZone=""
+PlayerSpawn=""
+Modifier=""
 
 [input]
 

@@ -4,6 +4,7 @@ extends Node
 @onready var licks : Array[Node] = get_tree().get_nodes_in_group("lick")
 @onready var NoteManager : Node = get_tree().get_first_node_in_group("NoteManager")
 @onready var GameManager : Node = get_tree().get_first_node_in_group("GameManager")
+@onready var audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
 @onready var midi_player: MidiPlayer = $MidiPlayer
 @onready var metronome: AudioStreamPlayer2D = $Metronome
 @onready var midi_timings : Dictionary = {}
@@ -41,6 +42,7 @@ func stop_lick() -> void:
 		playing_lick = false
 		midi_player.stop()
 		midi_timings = {}
+		audio_stream_player_2d.stop()
 	
 
 func select_lick(difficulty_score, difficulty_threshold) -> Lick:
@@ -59,8 +61,15 @@ func connect_lick(lick: Lick):
 	parser = MidiFileParser.load_file(lick.lick_midi)
 	print(get_midi_timings(lick.bmp))
 	print(lick)
+	#print(GameManager.difficulty)
 	midi_player.file = lick.lick_midi
 	midi_player.play()
+	#print(lick.lick_music)
+	audio_stream_player_2d.stream = load(lick.lick_music)
+	audio_stream_player_2d.play()
+	
+	if lick.spawn_clone:
+		GameManager.spawn_clones()
 
 func player_played_note(note : int) -> void:
 	#print(time_passed)
@@ -69,7 +78,6 @@ func player_played_note(note : int) -> void:
 		if time_passed - GameManager.note_timing_threshold < timing and \
 		time_passed + GameManager.note_timing_threshold > timing:
 			#print(midi_timings[timing])
-			#print(note)
 			if midi_timings[timing] == note - 24:
 				midi_timings.erase(timing)
 				correct_input = true

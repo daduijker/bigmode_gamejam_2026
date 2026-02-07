@@ -5,3 +5,4 @@ class_name Lick
 @export_file var lick_midi
 @export var bmp : int
 @export var difficulty : int
+@export var spawn_clone : bool

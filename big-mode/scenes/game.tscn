@@ -12,7 +12,7 @@
 position = Vector2(588, 414)
 
 [node name="Player" parent="." unique_id=1769393985 instance=ExtResource("2_lnu2h")]
-position = Vector2(496, 531)
+position = Vector2(587, 518)
 
 [node name="Hud" parent="." unique_id=646021749 instance=ExtResource("4_lbhrr")]
 offset_left = 507.0
@@ -23,7 +23,3 @@ offset_bottom = 535.0
 [node name="NoteManager" parent="." unique_id=1167454483 instance=ExtResource("3_lnu2h")]
 
 [node name="LickManager" parent="." unique_id=1156586881 instance=ExtResource("5_iywne")]
-
-[node name="Player2" parent="." unique_id=1201438321 instance=ExtResource("2_lnu2h")]
-position = Vector2(639, 534)
-am_i_the_main_player = false
