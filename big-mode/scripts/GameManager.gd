@@ -2,17 +2,34 @@ extends Node
 @onready var next_lick_timer: Timer = $NextLickTimer
 @onready var dmg_cooldown_timer: Timer = $DmgCooldownTimer
 @onready var LickManager : Node = get_tree().get_first_node_in_group("LickManager")
-
-
+@onready var fall_areas : Array[Node] = get_tree().get_nodes_in_group("FallZone")
+@onready var player_spawn: Node2D = $PlayerSpawn
 @onready var difficulty : int = 0
+
 @export var difficulty_threshold : int
 @export var note_timing_threshold : int
+
+var player = preload("res://scenes/player.tscn")
 
 var player_life = 3
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	for fall_area in fall_areas:
+		fall_area.body_entered.connect(_on_body_entered)
+
+# fall zones
+func _on_body_entered(body: Node2D) -> void:
+	if body.is_in_group("player"):
+		body.state_machine.change_state(body.state_machine.falling_state)
+		
+# player respawn after falling
+func respawn_player() -> void:
+	LickManager.stop_lick() 
+	take_damage(1)
+	var instance = player.instantiate()
+	instance.global_position = player_spawn.global_position
+	get_tree().current_scene.add_child(instance)
 
 signal lose_health(dmg_amount, current_health)
 

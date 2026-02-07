@@ -23,3 +23,7 @@ offset_bottom = 535.0
 [node name="NoteManager" parent="." unique_id=1167454483 instance=ExtResource("3_lnu2h")]
 
 [node name="LickManager" parent="." unique_id=1156586881 instance=ExtResource("5_iywne")]
+
+[node name="Player2" parent="." unique_id=1201438321 instance=ExtResource("2_lnu2h")]
+position = Vector2(639, 534)
+am_i_the_main_player = false

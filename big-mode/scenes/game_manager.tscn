@@ -29,6 +29,9 @@ autostart = true
 [node name="DmgCooldownTimer" type="Timer" parent="." unique_id=1942222755]
 one_shot = true
 
+[node name="PlayerSpawn" type="Node2D" parent="." unique_id=1260504997]
+position = Vector2(599, 486)
+
 [connection signal="lose_health" from="." to="." method="_on_lose_health"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]

@@ -2,6 +2,7 @@ extends Node
 class_name StateMachine
 
 @export var starting_state: State
+@export var falling_state: State
 
 var current_state: State
 
