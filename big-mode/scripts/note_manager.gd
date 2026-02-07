@@ -25,6 +25,8 @@ func player_played_note(played_string: String) -> void:
 	var played_note : int = 0
 	played_note = find_highest_fret(played_string)
 	LickManager.player_played_note(played_note)
+	#print(played_note)
+	print_debug(LickManager.time_passed)
 
 func find_highest_fret(string: String) -> int:
 	# Return the highest selected fret on a string in MIDI code

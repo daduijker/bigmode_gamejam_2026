@@ -8,8 +8,6 @@
 
 [node name="LickManager" type="Node" unique_id=1156586881 groups=["LickManager"]]
 script = ExtResource("1_bpy31")
-difficulty_threshold = 2
-note_timing_threshold = 200
 
 [node name="ADSR" parent="." unique_id=1674578093 instance=ExtResource("2_ldfup")]
 

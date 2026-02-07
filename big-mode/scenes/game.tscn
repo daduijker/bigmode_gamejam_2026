@@ -14,9 +14,6 @@ position = Vector2(588, 414)
 [node name="Player" parent="." unique_id=1769393985 instance=ExtResource("2_lnu2h")]
 position = Vector2(496, 531)
 
-[node name="GameManager" parent="." unique_id=1203229814 instance=ExtResource("3_lnu2h")]
-script = null
-
 [node name="Hud" parent="." unique_id=646021749 instance=ExtResource("4_lbhrr")]
 offset_left = 507.0
 offset_top = 535.0

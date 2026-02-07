@@ -1,4 +1,10 @@
 extends Node
+@onready var next_lick_timer: Timer = $NextLickTimer
+@onready var LickManager : Node = get_tree().get_first_node_in_group("LickManager")
+
+@onready var difficulty : int = 0
+@export var difficulty_threshold : int
+@export var note_timing_threshold : int
 
 var player_life = 3
 
@@ -7,6 +13,20 @@ func _ready() -> void:
 	pass # Replace with function body.
 
 signal lose_health(dmg_amount, current_health)
+
+func lick_successful() -> void:
+	print_debug("Lick successful")
+	LickManager.stop_lick()
+	difficulty += 1
+	next_lick_timer.start()
+
+
+func lick_unsuccessful() -> void:
+	print_debug("Lick unsuccessful")
+	LickManager.stop_lick()
+	take_damage(1)
+	next_lick_timer.start()
+
 
 func take_damage(amount):
 	player_life -= amount
@@ -29,3 +49,8 @@ func _on_button_pressed() -> void:
 
 func _on_button_2_pressed() -> void:
 	take_damage(2) # Replace with function body.
+
+
+func _on_next_lick_timer_timeout() -> void:
+	print_debug("Starting a new lick")
+	LickManager.start_new_lick()
