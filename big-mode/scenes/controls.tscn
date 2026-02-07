@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://0c1fdg7nsjad" path="res://assets/buttons/Keyboard Extras.png" id="2_cywyo"]
 [ext_resource type="Texture2D" uid="uid://ci6u3jv834reo" path="res://assets/menu/return_button.png" id="4_dloai"]
 [ext_resource type="Texture2D" uid="uid://w1ga6ya2xnwm" path="res://assets/menu/return_button_pressed.png" id="5_k6bol"]
+[ext_resource type="Texture2D" uid="uid://cd7wj5t0jtiw5" path="res://assets/menu/menu_box.png" id="7_k6bol"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ihl6s"]
 atlas = ExtResource("1_5tddo")
@@ -29,6 +30,10 @@ region = Rect2(33, 66, 13, 12)
 atlas = SubResource("CompressedTexture2D_jlst0")
 region = Rect2(49, 34, 13, 12)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_qfrta"]
+atlas = ExtResource("2_cywyo")
+region = Rect2(65, 34, 30, 12)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_vwfca"]
 atlas = ExtResource("1_5tddo")
 region = Rect2(65, 66, 13, 12)
@@ -44,10 +49,6 @@ region = Rect2(97, 50, 13, 12)
 [sub_resource type="AtlasTexture" id="AtlasTexture_bd2fc"]
 atlas = ExtResource("1_5tddo")
 region = Rect2(113, 50, 13, 12)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_qfrta"]
-atlas = ExtResource("2_cywyo")
-region = Rect2(65, 34, 30, 12)
 
 [node name="Controls" type="Control" unique_id=687968738]
 layout_mode = 3
@@ -69,114 +70,179 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -398.0
-offset_top = -188.0
-offset_right = -382.0
-offset_bottom = -179.0
+offset_left = -580.0
+offset_top = -321.0
+offset_right = -564.0
+offset_bottom = -312.0
 grow_horizontal = 2
 grow_vertical = 2
-scale = Vector2(48.11413, 40.182777)
+scale = Vector2(70.448524, 69.08453)
 
 [node name="ColorRect" type="ColorRect" parent="CenterContainer" unique_id=566202934]
 custom_minimum_size = Vector2(16, 9)
 layout_mode = 2
 color = Color(0.5823756, 0.5823756, 0.5823756, 1)
 
-[node name="TextureButton" type="TextureButton" parent="CenterContainer" unique_id=1756900919]
-layout_mode = 2
-
-[node name="Label" type="Label" parent="." unique_id=1800560411]
+[node name="TextureButton" type="TextureButton" parent="." unique_id=1681872894]
 layout_mode = 0
-offset_left = 269.0
-offset_top = 205.0
-offset_right = 299.0
+offset_left = 380.0
+offset_top = 378.00003
+offset_right = 444.0
+offset_bottom = 418.00003
+scale = Vector2(5, 5)
+texture_normal = ExtResource("4_dloai")
+texture_pressed = ExtResource("5_k6bol")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=152522703]
+layout_mode = 0
+offset_left = 140.0
+offset_top = 164.0
+offset_right = 340.0
 offset_bottom = 228.0
-text = "explain how game work maybe with preview keyboard key previews"
+scale = Vector2(4, 4)
 
-[node name="move_buttons" type="GridContainer" parent="." unique_id=2139998424]
+[node name="Move" type="TextureRect" parent="HBoxContainer" unique_id=1769208387]
+layout_mode = 2
+texture = ExtResource("7_k6bol")
+
+[node name="Label" type="Label" parent="HBoxContainer/Move" unique_id=898630751]
 layout_mode = 0
-offset_left = 284.0
-offset_top = 315.0
-offset_right = 331.0
-offset_bottom = 355.0
+offset_left = 15.0
+offset_top = -1.5
+offset_right = 51.0
+offset_bottom = 21.5
+theme_override_colors/font_color = Color(0.14117648, 0.14117648, 0.14117648, 1)
+theme_override_font_sizes/font_size = 24
+text = "MOVE"
+
+[node name="CenterContainer" type="CenterContainer" parent="HBoxContainer/Move" unique_id=1562892736]
+layout_mode = 0
+offset_left = 10.599999
+offset_top = 27.400026
+offset_right = 57.6
+offset_bottom = 67.40005
+scale = Vector2(0.9, 0.9)
+
+[node name="move_buttons" type="GridContainer" parent="HBoxContainer/Move/CenterContainer" unique_id=2139998424]
+layout_mode = 2
 columns = 3
 
-[node name="Spacer" type="TextureRect" parent="move_buttons" unique_id=245526835]
+[node name="Spacer" type="TextureRect" parent="HBoxContainer/Move/CenterContainer/move_buttons" unique_id=245526835]
 layout_mode = 2
 texture = SubResource("AtlasTexture_ihl6s")
 stretch_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="move_buttons" unique_id=607088768]
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/Move/CenterContainer/move_buttons" unique_id=607088768]
 layout_mode = 2
 texture = SubResource("AtlasTexture_dloai")
 stretch_mode = 2
 
-[node name="Spacer2" type="TextureRect" parent="move_buttons" unique_id=679969879]
+[node name="Spacer2" type="TextureRect" parent="HBoxContainer/Move/CenterContainer/move_buttons" unique_id=679969879]
 layout_mode = 2
 texture = SubResource("AtlasTexture_ihl6s")
 stretch_mode = 2
 
-[node name="TextureRect2" type="TextureRect" parent="move_buttons" unique_id=1190496451]
+[node name="TextureRect2" type="TextureRect" parent="HBoxContainer/Move/CenterContainer/move_buttons" unique_id=1190496451]
 layout_mode = 2
 texture = SubResource("AtlasTexture_k6bol")
 stretch_mode = 2
 
-[node name="TextureRect3" type="TextureRect" parent="move_buttons" unique_id=606429380]
+[node name="TextureRect3" type="TextureRect" parent="HBoxContainer/Move/CenterContainer/move_buttons" unique_id=606429380]
 layout_mode = 2
 texture = SubResource("AtlasTexture_a8sje")
 stretch_mode = 2
 
-[node name="TextureRect4" type="TextureRect" parent="move_buttons" unique_id=720024727]
+[node name="TextureRect4" type="TextureRect" parent="HBoxContainer/Move/CenterContainer/move_buttons" unique_id=720024727]
 layout_mode = 2
 texture = SubResource("AtlasTexture_t622t")
 stretch_mode = 2
 
-[node name="string_buttons" type="GridContainer" parent="." unique_id=1341752820]
+[node name="Fret" type="TextureRect" parent="HBoxContainer" unique_id=1032539289]
+layout_mode = 2
+texture = ExtResource("7_k6bol")
+
+[node name="Label" type="Label" parent="HBoxContainer/Fret" unique_id=423942487]
 layout_mode = 0
-offset_left = 570.0
-offset_top = 317.0
-offset_right = 634.0
-offset_bottom = 357.0
+offset_left = 15.0
+offset_top = -1.5
+offset_right = 51.0
+offset_bottom = 21.5
+theme_override_colors/font_color = Color(0.14117648, 0.14117648, 0.14117648, 1)
+theme_override_font_sizes/font_size = 24
+text = "FRET"
+
+[node name="CenterContainer" type="CenterContainer" parent="HBoxContainer/Fret" unique_id=1219905505]
+layout_mode = 0
+offset_left = 11.200001
+offset_top = 34.40001
+offset_right = 58.2
+offset_bottom = 74.40004
+scale = Vector2(0.9, 0.9)
+
+[node name="fret_buttons" type="GridContainer" parent="HBoxContainer/Fret/CenterContainer" unique_id=894658846]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/Fret/CenterContainer/fret_buttons" unique_id=1335453581]
+layout_mode = 2
+texture = SubResource("AtlasTexture_qfrta")
+
+[node name="String" type="TextureRect" parent="HBoxContainer" unique_id=830030954]
+layout_mode = 2
+texture = ExtResource("7_k6bol")
+
+[node name="CenterContainer" type="CenterContainer" parent="HBoxContainer/String" unique_id=1364682219]
+layout_mode = 0
+offset_left = 3.4000006
+offset_top = 34.399998
+offset_right = 67.4
+offset_bottom = 74.399994
+scale = Vector2(0.9, 0.9)
+
+[node name="string_buttons" type="GridContainer" parent="HBoxContainer/String/CenterContainer" unique_id=1341752820]
+layout_mode = 2
 columns = 5
 
-[node name="TextureRect" type="TextureRect" parent="string_buttons" unique_id=1730584261]
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/String/CenterContainer/string_buttons" unique_id=1730584261]
 layout_mode = 2
 texture = SubResource("AtlasTexture_vwfca")
 stretch_mode = 2
 
-[node name="TextureRect2" type="TextureRect" parent="string_buttons" unique_id=1954633965]
+[node name="TextureRect2" type="TextureRect" parent="HBoxContainer/String/CenterContainer/string_buttons" unique_id=1954633965]
 layout_mode = 2
 texture = SubResource("AtlasTexture_niyus")
 stretch_mode = 2
 
-[node name="TextureRect3" type="TextureRect" parent="string_buttons" unique_id=502959211]
+[node name="TextureRect3" type="TextureRect" parent="HBoxContainer/String/CenterContainer/string_buttons" unique_id=502959211]
 layout_mode = 2
 texture = SubResource("AtlasTexture_8sahj")
 stretch_mode = 2
 
-[node name="TextureRect4" type="TextureRect" parent="string_buttons" unique_id=1648628655]
+[node name="TextureRect4" type="TextureRect" parent="HBoxContainer/String/CenterContainer/string_buttons" unique_id=1648628655]
 layout_mode = 2
 texture = SubResource("AtlasTexture_bd2fc")
 stretch_mode = 2
 
-[node name="fret_buttons" type="GridContainer" parent="." unique_id=894658846]
+[node name="Label" type="Label" parent="HBoxContainer/String" unique_id=531605664]
 layout_mode = 0
-offset_left = 467.0
-offset_top = 367.0
-offset_right = 497.0
-offset_bottom = 407.0
+offset_left = 15.0
+offset_top = -1.5
+offset_right = 51.0
+offset_bottom = 21.5
+theme_override_colors/font_color = Color(0.14117648, 0.14117648, 0.14117648, 1)
+theme_override_font_sizes/font_size = 24
+text = "PLAY STRING"
+horizontal_alignment = 1
+autowrap_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="fret_buttons" unique_id=1335453581]
-layout_mode = 2
-texture = SubResource("AtlasTexture_qfrta")
-
-[node name="TextureButton" type="TextureButton" parent="." unique_id=1681872894]
+[node name="Label" type="Label" parent="." unique_id=1721521832]
 layout_mode = 0
-offset_left = 484.0
-offset_top = 396.0
-offset_right = 548.0
-offset_bottom = 436.0
-texture_normal = ExtResource("4_dloai")
-texture_pressed = ExtResource("5_k6bol")
+offset_left = -80.0
+offset_top = 4.0
+offset_right = 1216.0
+offset_bottom = 106.0
+theme_override_colors/font_color = Color(0.14117648, 0.14117648, 0.14117648, 1)
+theme_override_font_sizes/font_size = 128
+text = "HOW TO PLAY"
+horizontal_alignment = 1
 
 [connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]

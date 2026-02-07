@@ -26,6 +26,11 @@ player="Playable characters"
 fret="Group containing all frets"
 CanFretNote="Objects and players that can fret notes"
 
+[gui]
+
+theme/default_font_antialiasing=0
+theme/custom_font="uid://ci70ygk3o84le"
+
 [input]
 
 ui_accept={
