@@ -12,6 +12,9 @@ class_name Player
 func _ready() -> void:
 	if am_i_the_main_player:
 		animations.material = null
+	else:
+		self.add_to_group("Modifiers")
+		
 	state_machine.init(self)
 	
 func _unhandled_input(event: InputEvent) -> void:

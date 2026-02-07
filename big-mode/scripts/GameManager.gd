@@ -3,13 +3,13 @@ extends Node
 @onready var dmg_cooldown_timer: Timer = $DmgCooldownTimer
 @onready var LickManager : Node = get_tree().get_first_node_in_group("LickManager")
 @onready var fall_areas : Array[Node] = get_tree().get_nodes_in_group("FallZone")
-@onready var player_spawn: Node2D = $PlayerSpawn
+@onready var player_spawns: Array[Node] = get_tree().get_nodes_in_group("PlayerSpawn")
 @onready var difficulty : int = 0
 
 @export var difficulty_threshold : int
 @export var note_timing_threshold : int
 
-var player = preload("res://scenes/player.tscn")
+var player_instance = preload("res://scenes/player.tscn")
 
 var player_life = 3
 
@@ -27,8 +27,8 @@ func _on_body_entered(body: Node2D) -> void:
 func respawn_player() -> void:
 	LickManager.stop_lick() 
 	take_damage(1)
-	var instance = player.instantiate()
-	instance.global_position = player_spawn.global_position
+	var instance = player_instance.instantiate()
+	instance.global_position = player_spawns[0].global_position
 	get_tree().current_scene.add_child(instance)
 
 signal lose_health(dmg_amount, current_health)
@@ -36,6 +36,7 @@ signal lose_health(dmg_amount, current_health)
 func lick_successful() -> void:
 	print_debug("Lick successful")
 	LickManager.stop_lick()
+	delete_modifiers()
 	difficulty += 1
 	next_lick_timer.start()
 
@@ -43,6 +44,7 @@ func lick_successful() -> void:
 func lick_unsuccessful() -> void:
 	print_debug("Lick unsuccessful")
 	LickManager.stop_lick()
+	delete_modifiers()
 	if dmg_cooldown_timer.time_left == 0:
 		take_damage(1)
 		
@@ -76,3 +78,23 @@ func _on_button_2_pressed() -> void:
 func _on_next_lick_timer_timeout() -> void:
 	#print_debug("Starting a new lick")
 	LickManager.start_new_lick()
+
+
+func spawn_clones() -> void:
+	get_tree().get_first_node_in_group("player").queue_free()
+	
+	var instance = player_instance.instantiate()
+	instance.global_position = player_spawns[1].global_position
+	get_tree().current_scene.add_child(instance)
+	
+	var instance_clone = player_instance.instantiate()
+	instance_clone.global_position = player_spawns[2].global_position
+	instance_clone.am_i_the_main_player = false
+	get_tree().current_scene.add_child(instance_clone)
+
+	
+func delete_modifiers() -> void:
+	var modifiers = get_tree().get_nodes_in_group("Modifiers")
+	if modifiers:
+		for item in modifiers:
+			item.queue_free()

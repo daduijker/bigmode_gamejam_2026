@@ -14,17 +14,30 @@ script = ExtResource("1_bpy31")
 [node name="MidiPlayer" parent="." unique_id=1576628824 instance=ExtResource("3_s7rkn")]
 file = "res://music/MIDI/test_120bpm.mid"
 
-[node name="Lick_1" parent="." unique_id=1460421846 instance=ExtResource("4_ldfup")]
+[node name="Metronome" type="AudioStreamPlayer2D" parent="." unique_id=812728710]
+stream = ExtResource("5_s7rkn")
+
+[node name="Licks" type="Node" parent="." unique_id=954516970]
+
+[node name="Lick_1" parent="Licks" unique_id=1460421846 instance=ExtResource("4_ldfup")]
+lick_music = "uid://dkpd1apflf8rw"
 lick_midi = "res://music/MIDI/test_100bpm.mid"
 bmp = 100
 difficulty = 1
 
-[node name="Lick_2" parent="." unique_id=167237160 instance=ExtResource("4_ldfup")]
-lick_midi = "res://music/MIDI/test_120bpm.mid"
-bmp = 120
+[node name="Lick_2" parent="Licks" unique_id=840655575 instance=ExtResource("4_ldfup")]
+lick_music = "uid://dkpd1apflf8rw"
+lick_midi = "res://music/MIDI/100bpm_2.mid"
+bmp = 100
 difficulty = 2
 
-[node name="Metronome" type="AudioStreamPlayer2D" parent="." unique_id=812728710]
-stream = ExtResource("5_s7rkn")
+[node name="Lick_3" parent="Licks" unique_id=926797159 instance=ExtResource("4_ldfup")]
+lick_music = "uid://dkpd1apflf8rw"
+lick_midi = "res://music/MIDI/100bpm_3.mid"
+bmp = 100
+difficulty = 3
+spawn_clone = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=825159979]
 
 [connection signal="midi_event" from="MidiPlayer" to="." method="_on_midi_player_midi_event"]
