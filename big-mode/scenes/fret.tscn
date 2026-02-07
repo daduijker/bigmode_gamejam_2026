@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://c5xm6hcne8x1e" path="res://scripts/fret.gd" id="1_lip1w"]
 [ext_resource type="Texture2D" uid="uid://bfxv2opkl45m7" path="res://icon.svg" id="2_lvl4t"]
 [ext_resource type="Texture2D" uid="uid://citdodxqxjgge" path="res://assets/textures/blob_red.png" id="3_t71bf"]
+[ext_resource type="Texture2D" uid="uid://m7idhg7jymdy" path="res://assets/textures/blob_green.png" id="4_bb4nx"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lip1w"]
 radius = 4.1231055
@@ -38,6 +39,15 @@ texture = ExtResource("2_lvl4t")
 emitting = false
 amount = 100
 texture = ExtResource("3_t71bf")
+lifetime = 0.4
+one_shot = true
+preprocess = 0.1
+process_material = SubResource("ParticleProcessMaterial_bb4nx")
+
+[node name="NotePlayParticles" type="GPUParticles2D" parent="." unique_id=1629606375]
+emitting = false
+amount = 100
+texture = ExtResource("4_bb4nx")
 lifetime = 0.4
 one_shot = true
 preprocess = 0.1

@@ -26,6 +26,9 @@ player="Playable characters"
 fret="Group containing all frets"
 CanFretNote="Objects and players that can fret notes"
 lick="Lick class"
+NoteManager=""
+LickManager=""
+GameManager=""
 
 [input]
 

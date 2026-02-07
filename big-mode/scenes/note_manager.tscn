@@ -2,5 +2,5 @@
 
 [ext_resource type="Script" uid="uid://sqilivq2vadw" path="res://scripts/note_manager.gd" id="1_swl6b"]
 
-[node name="NoteManager" type="Node" unique_id=1167454483]
+[node name="NoteManager" type="Node" unique_id=1167454483 groups=["NoteManager"]]
 script = ExtResource("1_swl6b")

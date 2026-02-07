@@ -2,8 +2,10 @@
 
 [ext_resource type="Script" uid="uid://dhwcy7n0vnn6" path="res://scripts/GameManager.gd" id="1_hwd4i"]
 
-[node name="GameManager" type="Node" unique_id=1203229814]
+[node name="GameManager" type="Node" unique_id=1203229814 groups=["GameManager"]]
 script = ExtResource("1_hwd4i")
+difficulty_threshold = 5
+note_timing_threshold = 200
 
 [node name="Button" type="Button" parent="." unique_id=2105678839]
 offset_left = 922.0
@@ -19,6 +21,15 @@ offset_right = 1115.2827
 offset_bottom = 244.59969
 text = "Damage Player (2)"
 
+[node name="NextLickTimer" type="Timer" parent="." unique_id=1523909438]
+wait_time = 4.0
+one_shot = true
+autostart = true
+
+[node name="DmgCooldownTimer" type="Timer" parent="." unique_id=1942222755]
+one_shot = true
+
 [connection signal="lose_health" from="." to="." method="_on_lose_health"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Button2" to="." method="_on_button_2_pressed"]
+[connection signal="timeout" from="NextLickTimer" to="." method="_on_next_lick_timer_timeout"]
