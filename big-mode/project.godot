@@ -33,6 +33,11 @@ FallZone=""
 PlayerSpawn=""
 Modifier=""
 
+[gui]
+
+theme/default_font_antialiasing=0
+theme/custom_font="uid://ci70ygk3o84le"
+
 [input]
 
 ui_accept={
