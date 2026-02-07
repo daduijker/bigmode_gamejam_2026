@@ -81,4 +81,14 @@ frame_progress = 1.0
 
 [node name="GameManager" parent="." unique_id=1203229814 instance=ExtResource("3_1etfg")]
 
+[node name="SickLick" type="RichTextLabel" parent="." unique_id=1963727099 groups=["SickLickLabel"]]
+visible = false
+layout_mode = 0
+offset_left = -32.0
+offset_top = -506.0
+offset_right = 192.0
+offset_bottom = -378.0
+bbcode_enabled = true
+text = "test"
+
 [connection signal="lose_health" from="GameManager" to="." method="_on_game_manager_lose_health"]

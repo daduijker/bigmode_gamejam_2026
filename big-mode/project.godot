@@ -32,6 +32,7 @@ GameManager=""
 FallZone=""
 PlayerSpawn=""
 Modifier=""
+SickLickLabel=""
 
 [input]
 

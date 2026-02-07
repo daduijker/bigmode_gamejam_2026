@@ -1,9 +1,12 @@
 extends Node
 @onready var next_lick_timer: Timer = $NextLickTimer
 @onready var dmg_cooldown_timer: Timer = $DmgCooldownTimer
+@onready var text_timer: Timer = $TextTimer
+
 @onready var LickManager : Node = get_tree().get_first_node_in_group("LickManager")
 @onready var fall_areas : Array[Node] = get_tree().get_nodes_in_group("FallZone")
 @onready var player_spawns: Array[Node] = get_tree().get_nodes_in_group("PlayerSpawn")
+@onready var sick_lick_label : RichTextLabel = get_tree().get_first_node_in_group("SickLickLabel")
 @onready var difficulty : int = 0
 
 @export var difficulty_threshold : int
@@ -30,6 +33,7 @@ func respawn_player() -> void:
 	var instance = player_instance.instantiate()
 	instance.global_position = player_spawns[0].global_position
 	get_tree().current_scene.add_child(instance)
+	next_lick_timer.start()
 
 signal lose_health(dmg_amount, current_health)
 
@@ -39,6 +43,7 @@ func lick_successful() -> void:
 	delete_modifiers()
 	difficulty += 1
 	next_lick_timer.start()
+	
 
 
 func lick_unsuccessful() -> void:
@@ -79,7 +84,27 @@ func _on_next_lick_timer_timeout() -> void:
 	#print_debug("Starting a new lick")
 	LickManager.start_new_lick()
 
+func display_sick_lick() -> void: 
+	var word_list = ["SWEET", "SICK", "STELLAR", "SPLENDID", "SUPREME", "SLICK", \
+	"SAVAGE", "SMASHING", "SPICY", "SMOOTH", "SUBLIME", "SPECTACULAR", "SENSATIONAL",\
+	 "SOLID", "STUNNING", "SAUCY", "STEEZY"] 
+	var text_addon = "[b][center][br][font_size=30]"
+	var text_colors = ["[color=dark_cyan]","[color=spring_green]","[color=gold]",\
+	"[color=dark_red]", "[color=midnight_blue]"," [color=hot_pink]"]
+	var text_mod = ["[shake]", "[tornado freq=2.0]"]
+	
+	sick_lick_label.text = text_colors.pick_random() + text_mod.pick_random() + text_addon \
+	+ word_list.pick_random() + " LICK"
+	sick_lick_label.visible = true
+	
+	text_timer.start()
 
+func _on_text_timer_timeout() -> void:
+	sick_lick_label.visible = false
+	
+
+	
+	
 func spawn_clones() -> void:
 	get_tree().get_first_node_in_group("player").queue_free()
 	

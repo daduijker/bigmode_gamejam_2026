@@ -31,6 +31,7 @@ func _process(delta: float) -> void:
 				# YOU MISSED A NOTE
 				#print_debug('YOU MISSED A NOTE')
 				GameManager.lick_unsuccessful()
+
 	
 func start_new_lick() -> void:
 	playing_lick = true
@@ -90,7 +91,10 @@ func player_played_note(note : int) -> void:
 				fret.play_example()
 				
 	if not correct_input:
-		GameManager.lick_unsuccessful() 
+		GameManager.lick_unsuccessful()
+		
+	if not midi_timings and playing_lick:
+		GameManager.display_sick_lick()
 
 func _on_midi_player_midi_event(channel: Variant, event: Variant) -> void:
 	# E4 to C6 are example notes (64 to 83)
