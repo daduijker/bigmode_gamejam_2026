@@ -2,6 +2,7 @@ extends Node
 @onready var next_lick_timer: Timer = $NextLickTimer
 @onready var dmg_cooldown_timer: Timer = $DmgCooldownTimer
 @onready var text_timer: Timer = $TextTimer
+@export var my_font: Font
 
 @onready var LickManager : Node = get_tree().get_first_node_in_group("LickManager")
 @onready var fall_areas : Array[Node] = get_tree().get_nodes_in_group("FallZone")
@@ -88,7 +89,7 @@ func display_sick_lick() -> void:
 	var word_list = ["SWEET", "SICK", "STELLAR", "SPLENDID", "SUPREME", "SLICK", \
 	"SAVAGE", "SMASHING", "SPICY", "SMOOTH", "SUBLIME", "SPECTACULAR", "SENSATIONAL",\
 	 "SOLID", "STUNNING", "SAUCY", "STEEZY"] 
-	var text_addon = "[b][center][br][font_size=30]"
+	var text_addon = "[center][br][font_size=40]"
 	var text_colors = ["[color=dark_cyan]","[color=spring_green]","[color=gold]",\
 	"[color=dark_red]", "[color=midnight_blue]"," [color=hot_pink]"]
 	var text_mod = ["[shake]", "[tornado freq=2.0]"]

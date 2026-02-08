@@ -84,10 +84,10 @@ frame_progress = 1.0
 [node name="SickLick" type="RichTextLabel" parent="." unique_id=1963727099 groups=["SickLickLabel"]]
 visible = false
 layout_mode = 0
-offset_left = -32.0
-offset_top = -506.0
-offset_right = 192.0
-offset_bottom = -378.0
+offset_left = -40.0
+offset_top = -464.0
+offset_right = 184.0
+offset_bottom = -336.0
 bbcode_enabled = true
 text = "test"
 
