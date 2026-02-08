@@ -1,9 +1,11 @@
 [gd_scene format=3 uid="uid://q1fgrlh5ckch"]
 
 [ext_resource type="Script" uid="uid://dhwcy7n0vnn6" path="res://scripts/GameManager.gd" id="1_hwd4i"]
+[ext_resource type="FontFile" uid="uid://ci70ygk3o84le" path="res://assets/fonts/monogram.ttf" id="2_glms7"]
 
 [node name="GameManager" type="Node" unique_id=1203229814 groups=["GameManager"]]
 script = ExtResource("1_hwd4i")
+my_font = ExtResource("2_glms7")
 difficulty_threshold = 5
 note_timing_threshold = 200
 
