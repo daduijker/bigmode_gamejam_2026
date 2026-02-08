@@ -13,7 +13,7 @@ func enter() -> void:
 		fret_hitbox.last_activated_fret.deactivate_fret()
 	hurt_time = max_hurt_time
 	parent.velocity = Vector2(0,0)
-	print_debug('hurt')
+	#print_debug('hurt')
 	super()
 
 func process_input(event: InputEvent) -> State:

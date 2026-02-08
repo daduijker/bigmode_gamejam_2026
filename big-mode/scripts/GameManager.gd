@@ -4,7 +4,6 @@ extends Node
 @onready var text_timer: Timer = $TextTimer
 @export var my_font: Font
 
-@onready var LickManager : Node = get_tree().get_first_node_in_group("LickManager")
 @onready var fall_areas : Array[Node] = get_tree().get_nodes_in_group("FallZone")
 @onready var player_spawns: Array[Node] = get_tree().get_nodes_in_group("PlayerSpawn")
 @onready var sick_lick_label : RichTextLabel = get_tree().get_first_node_in_group("SickLickLabel")
@@ -19,6 +18,7 @@ var player_life = 3
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	Global.GameManager = self
 	for fall_area in fall_areas:
 		fall_area.body_entered.connect(_on_body_entered)
 
@@ -29,7 +29,7 @@ func _on_body_entered(body: Node2D) -> void:
 		
 # player respawn after falling
 func respawn_player() -> void:
-	LickManager.stop_lick() 
+	Global.LickManager.stop_lick() 
 	take_damage(1)
 	var instance = player_instance.instantiate()
 	instance.global_position = player_spawns[0].global_position
@@ -40,7 +40,7 @@ signal lose_health(dmg_amount, current_health)
 
 func lick_successful() -> void:
 	print_debug("Lick successful")
-	LickManager.stop_lick()
+	Global.LickManager.stop_lick()
 	delete_modifiers()
 	difficulty += 1
 	next_lick_timer.start()
@@ -49,7 +49,7 @@ func lick_successful() -> void:
 
 func lick_unsuccessful() -> void:
 	print_debug("Lick unsuccessful")
-	LickManager.stop_lick()
+	Global.LickManager.stop_lick()
 	delete_modifiers()
 	if dmg_cooldown_timer.time_left == 0:
 		take_damage(1)
@@ -83,7 +83,7 @@ func _on_button_2_pressed() -> void:
 
 func _on_next_lick_timer_timeout() -> void:
 	#print_debug("Starting a new lick")
-	LickManager.start_new_lick()
+	Global.LickManager.start_new_lick()
 
 func display_sick_lick() -> void: 
 	var word_list = ["SWEET", "SICK", "STELLAR", "SPLENDID", "SUPREME", "SLICK", \
@@ -104,21 +104,6 @@ func _on_text_timer_timeout() -> void:
 	sick_lick_label.visible = false
 	
 
-	
-	
-func spawn_clones() -> void:
-	get_tree().get_first_node_in_group("player").queue_free()
-	
-	var instance = player_instance.instantiate()
-	instance.global_position = player_spawns[1].global_position
-	get_tree().current_scene.add_child(instance)
-	
-	var instance_clone = player_instance.instantiate()
-	instance_clone.global_position = player_spawns[2].global_position
-	instance_clone.am_i_the_main_player = false
-	get_tree().current_scene.add_child(instance_clone)
-
-	
 func delete_modifiers() -> void:
 	var modifiers = get_tree().get_nodes_in_group("Modifiers")
 	if modifiers:

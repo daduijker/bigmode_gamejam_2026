@@ -14,6 +14,7 @@ func _ready() -> void:
 		animations.material = null
 	else:
 		self.add_to_group("Modifiers")
+		self.remove_from_group("mainplayer")
 		
 	state_machine.init(self)
 	
