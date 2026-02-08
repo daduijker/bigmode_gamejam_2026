@@ -353,9 +353,9 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_ur7pv"]
 radius = 17.5
 
-[node name="Player" type="CharacterBody2D" unique_id=1769393985 groups=["CanFretNote", "player"]]
+[node name="Player" type="CharacterBody2D" unique_id=1769393985 groups=["CanFretNote", "mainplayer", "player"]]
 scale = Vector2(2, 2)
-collision_layer = 7
+collision_layer = 15
 script = ExtResource("1_fjrip")
 
 [node name="PlayerShape" type="CollisionShape2D" parent="." unique_id=9133434]
@@ -387,9 +387,10 @@ fret_state = NodePath("../Fret")
 fret_hitbox = NodePath("../../FretHitbox")
 animation_name = "MoveRight"
 
-[node name="Hurt" type="Node" parent="StateMachine" unique_id=2138639142 node_paths=PackedStringArray("idle_state")]
+[node name="Hurt" type="Node" parent="StateMachine" unique_id=2138639142 node_paths=PackedStringArray("idle_state", "fret_hitbox")]
 script = ExtResource("8_ur7pv")
 idle_state = NodePath("../Idle")
+fret_hitbox = NodePath("../../FretHitbox")
 animation_name = "Hurt"
 
 [node name="Fret" type="Node" parent="StateMachine" unique_id=1340349082 node_paths=PackedStringArray("idle_state", "move_state", "fret_hitbox")]

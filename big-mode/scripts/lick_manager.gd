@@ -2,8 +2,6 @@ extends Node
 
 @onready var fret_list : Array[Node] = get_tree().get_nodes_in_group("fret")
 @onready var licks : Array[Node] = get_tree().get_nodes_in_group("lick")
-@onready var NoteManager : Node = get_tree().get_first_node_in_group("NoteManager")
-@onready var GameManager : Node = get_tree().get_first_node_in_group("GameManager")
 @onready var audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
 @onready var midi_player: MidiPlayer = $MidiPlayer
 @onready var metronome: AudioStreamPlayer2D = $Metronome
@@ -19,6 +17,7 @@ var playing_lick : bool = false
 
 
 func _ready() -> void:
+	Global.LickManager = self
 	pass
 	
 func _process(delta: float) -> void:
@@ -27,16 +26,18 @@ func _process(delta: float) -> void:
 	# check if a note has been played too late:
 	if playing_lick:
 		for note in midi_timings:
-			if time_passed > note + GameManager.note_timing_threshold:
+			if time_passed > note + Global.GameManager.note_timing_threshold:
 				# YOU MISSED A NOTE
 				#print_debug('YOU MISSED A NOTE')
-				GameManager.lick_unsuccessful()
+				Global.GameManager.lick_unsuccessful()
 
 	
 func start_new_lick() -> void:
 	playing_lick = true
 	time_passed = 0
-	connect_lick(select_lick(GameManager.difficulty, GameManager.difficulty_threshold))
+	connect_lick(select_lick(Global.GameManager.difficulty, \
+	Global.GameManager.difficulty_threshold))
+	
 	
 func stop_lick() -> void:
 	if playing_lick:
@@ -69,15 +70,14 @@ func connect_lick(lick: Lick):
 	audio_stream_player_2d.stream = load(lick.lick_music)
 	audio_stream_player_2d.play()
 	
-	if lick.spawn_clone:
-		GameManager.spawn_clones()
+	lick.activate_lick_modifiers()
 
 func player_played_note(note : int) -> void:
 	#print(time_passed)
 	var correct_input : bool = false
 	for timing in midi_timings:
-		if time_passed - GameManager.note_timing_threshold < timing and \
-		time_passed + GameManager.note_timing_threshold > timing:
+		if time_passed - Global.GameManager.note_timing_threshold < timing and \
+		time_passed + Global.GameManager.note_timing_threshold > timing:
 			#print(midi_timings[timing])
 			if midi_timings[timing] == note - 24:
 				midi_timings.erase(timing)
@@ -91,10 +91,10 @@ func player_played_note(note : int) -> void:
 				fret.play_example()
 				
 	if not correct_input:
-		GameManager.lick_unsuccessful()
+		Global.GameManager.lick_unsuccessful()
 		
 	if not midi_timings and playing_lick:
-		GameManager.display_sick_lick()
+		Global.GameManager.display_sick_lick()
 
 func _on_midi_player_midi_event(channel: Variant, event: Variant) -> void:
 	# E4 to C6 are example notes (64 to 83)
@@ -117,7 +117,7 @@ func _on_midi_player_midi_event(channel: Variant, event: Variant) -> void:
 				#print("1...")
 		elif  event['note'] == 60:
 			#LICK COMPLETED
-			GameManager.lick_successful()
+			Global.GameManager.lick_successful()
 		
 		elif event['note'] < 60: 
 			# PLAYER INPUT GETS HANDLED ELSEWHERE

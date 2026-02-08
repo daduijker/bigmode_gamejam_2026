@@ -159,3 +159,26 @@ collision_mask = 4
 position = Vector2(153.99998, 31.999998)
 rotation = -0.1326081
 shape = SubResource("RectangleShape2D_g2qsy")
+
+[node name="Spawns" type="Node2D" parent="." unique_id=256362140]
+
+[node name="PlayerSpawn" type="Node2D" parent="Spawns" unique_id=758385440 groups=["PlayerSpawn"]]
+position = Vector2(2, 49)
+
+[node name="PlayerSpawn2" type="Node2D" parent="Spawns" unique_id=2001248806 groups=["PlayerSpawn"]]
+position = Vector2(-63, 47)
+
+[node name="PlayerSpawn3" type="Node2D" parent="Spawns" unique_id=2046445941 groups=["PlayerSpawn"]]
+position = Vector2(70, 49)
+
+[node name="PlayerSpawn4" type="Node2D" parent="Spawns" unique_id=1271414896 groups=["PlayerSpawn"]]
+position = Vector2(361, 135)
+
+[node name="PlayerSpawn5" type="Node2D" parent="Spawns" unique_id=1662362408 groups=["PlayerSpawn"]]
+position = Vector2(356, 2)
+
+[node name="PlayerSpawn6" type="Node2D" parent="Spawns" unique_id=2025139383 groups=["PlayerSpawn"]]
+position = Vector2(-324, 132)
+
+[node name="PlayerSpawn7" type="Node2D" parent="Spawns" unique_id=1935052453 groups=["PlayerSpawn"]]
+position = Vector2(-328, 0)

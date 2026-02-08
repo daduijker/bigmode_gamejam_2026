@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://bvp81pa8nng5"]
+
+[ext_resource type="Script" uid="uid://denutjs5cs20h" path="res://scripts/cultist_enemy.gd" id="1_bwp3u"]
+[ext_resource type="Texture2D" uid="uid://c8tldebnob4bp" path="res://assets/enemy/cultist.png" id="1_mx24x"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ehdji"]
+atlas = ExtResource("1_mx24x")
+region = Rect2(0, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hr8ip"]
+atlas = ExtResource("1_mx24x")
+region = Rect2(80, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hack7"]
+atlas = ExtResource("1_mx24x")
+region = Rect2(160, 0, 80, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pgtkj"]
+atlas = ExtResource("1_mx24x")
+region = Rect2(240, 0, 80, 80)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pgtkj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ehdji")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hr8ip")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hack7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pgtkj")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="CultistEnemy" type="Node2D" unique_id=1815805326 groups=["Modifier"]]
+scale = Vector2(2, 2)
+script = ExtResource("1_bwp3u")
+min_attack_cd = 2.5
+max_attack_cd = 5.0
+attack_vel = 150
+attack_knockback_mod = 1.5
+
+[node name="CultistAnimations" type="AnimatedSprite2D" parent="." unique_id=1036956728]
+sprite_frames = SubResource("SpriteFrames_pgtkj")
+frame = 1
+frame_progress = 0.5942059
+
+[node name="AttackTimer" type="Timer" parent="." unique_id=974641333]
+
+[node name="FireballSpawnpoint" type="Node2D" parent="." unique_id=661025779]
+position = Vector2(-3.5, -1)
+
+[connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]

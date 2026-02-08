@@ -1,9 +1,9 @@
 extends Node
 
-@onready var player : CharacterBody2D = get_tree().get_first_node_in_group("player")
 @onready var fret_list : Array[Node] = get_tree().get_nodes_in_group("fret")
-@onready var LickManager : Node = get_tree().get_first_node_in_group("LickManager")
 
+func _ready() -> void:
+	Global.NoteManager = self
 
 func _unhandled_input(event: InputEvent) -> void:
 	var played_string: String = ""
@@ -24,10 +24,10 @@ func _unhandled_input(event: InputEvent) -> void:
 func player_played_note(played_string: String) -> void:
 	var played_note : int = 0
 	played_note = find_highest_fret(played_string)
-	LickManager.player_played_note(played_note)
+	Global.LickManager.player_played_note(played_note)
 	#print(played_note)
 				
-	var test = "Played: " + str(played_note) + " at: " + str(LickManager.time_passed)
+	var test = "Played: " + str(played_note) + " at: " + str(Global.LickManager.time_passed)
 	print_debug(test)
 
 func find_highest_fret(string: String) -> int:

@@ -1,0 +1,77 @@
+[gd_scene format=3 uid="uid://dxrldtb2wokos"]
+
+[ext_resource type="Script" uid="uid://b0vchpv2ukfb6" path="res://scripts/fireball.gd" id="1_mi4h5"]
+[ext_resource type="Texture2D" uid="uid://d2lfek61nwpyi" path="res://assets/enemy/FB500-1.png" id="2_wyo3q"]
+[ext_resource type="Texture2D" uid="uid://c450p78aw1jlt" path="res://assets/enemy/FB500-2.png" id="3_1fb5b"]
+[ext_resource type="Texture2D" uid="uid://djrbc7pxam6fx" path="res://assets/enemy/FB500-3.png" id="4_tyqc2"]
+[ext_resource type="Texture2D" uid="uid://cuw0u4pdb2pls" path="res://assets/enemy/FB500-4.png" id="5_pq144"]
+[ext_resource type="Texture2D" uid="uid://bmrrw4i7cwmbo" path="res://assets/enemy/FB500-5.png" id="6_0rtms"]
+[ext_resource type="Texture2D" uid="uid://clcttiv6aynfu" path="res://assets/enemy/B500-2.PNG" id="7_nxa2u"]
+[ext_resource type="Texture2D" uid="uid://bpr8j5gwjmjfl" path="res://assets/enemy/B500-3.PNG" id="8_7iiyt"]
+[ext_resource type="Texture2D" uid="uid://dmrebvt2damoj" path="res://assets/enemy/B500-4.PNG" id="9_y511n"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_e52x5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_wyo3q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_1fb5b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_tyqc2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_pq144")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_0rtms")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_nxa2u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_7iiyt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_y511n")
+}],
+"loop": false,
+"name": &"hit",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mi4h5"]
+radius = 59.999992
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wyo3q"]
+radius = 12.0
+
+[node name="Fireball" type="CharacterBody2D" unique_id=818297185]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_mi4h5")
+
+[node name="FireballAnimations" type="AnimatedSprite2D" parent="." unique_id=1141231114 groups=["Modifier"]]
+scale = Vector2(0.1, 0.1)
+sprite_frames = SubResource("SpriteFrames_e52x5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=14634229]
+scale = Vector2(0.1, 0.1)
+shape = SubResource("CircleShape2D_mi4h5")
+
+[node name="FireballCollision" type="Area2D" parent="." unique_id=1845173517]
+collision_layer = 0
+collision_mask = 9
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FireballCollision" unique_id=1973360986]
+shape = SubResource("CircleShape2D_wyo3q")
+
+[connection signal="animation_finished" from="FireballAnimations" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="body_entered" from="FireballCollision" to="." method="_on_fireball_collision_body_entered"]
