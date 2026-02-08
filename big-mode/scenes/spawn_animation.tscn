@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://cg40qu5rio2iq"]
+
+[ext_resource type="Script" uid="uid://c1lbfps70usw3" path="res://scripts/spawn_animation.gd" id="1_jnhc0"]
+[ext_resource type="Texture2D" uid="uid://gilell88cyik" path="res://assets/textures/black_square_transparent.png" id="2_e1hyk"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_okvlh"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 9.02
+angle_min = -720.0
+angle_max = 720.0
+spread = 180.0
+initial_velocity_min = 15.15
+initial_velocity_max = 100.38
+gravity = Vector3(0, 0, 0)
+damping_max = 0.568
+scale_max = 2.0
+
+[node name="SpawnAnimation" type="Node2D" unique_id=947332912]
+script = ExtResource("1_jnhc0")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=1411596849]
+emitting = false
+amount = 50
+texture = ExtResource("2_e1hyk")
+lifetime = 0.5
+one_shot = true
+preprocess = 0.2
+explosiveness = 0.5
+randomness = 1.0
+process_material = SubResource("ParticleProcessMaterial_okvlh")
+
+[node name="Timer" type="Timer" parent="." unique_id=1374528295]
+wait_time = 0.5
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

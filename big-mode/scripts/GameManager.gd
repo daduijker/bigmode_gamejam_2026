@@ -108,4 +108,9 @@ func delete_modifiers() -> void:
 	var modifiers = get_tree().get_nodes_in_group("Modifiers")
 	if modifiers:
 		for item in modifiers:
+			
+			var spawn_animation = Global.spawn_animation.instantiate()
+			spawn_animation.global_position = item.global_position
+			get_tree().current_scene.add_child(spawn_animation)
+			
 			item.queue_free()

@@ -45,9 +45,10 @@ script = ExtResource("1_bwp3u")
 min_attack_cd = 2.5
 max_attack_cd = 5.0
 attack_vel = 150
-attack_knockback_mod = 1.5
+attack_knockback_mod = 1.25
 
 [node name="CultistAnimations" type="AnimatedSprite2D" parent="." unique_id=1036956728]
+position = Vector2(1.5, -15.5)
 sprite_frames = SubResource("SpriteFrames_pgtkj")
 frame = 1
 frame_progress = 0.5942059
@@ -55,6 +56,6 @@ frame_progress = 0.5942059
 [node name="AttackTimer" type="Timer" parent="." unique_id=974641333]
 
 [node name="FireballSpawnpoint" type="Node2D" parent="." unique_id=661025779]
-position = Vector2(-3.5, -1)
+position = Vector2(-2, -16.5)
 
 [connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]

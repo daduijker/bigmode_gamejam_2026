@@ -18,6 +18,10 @@ func _ready() -> void:
 	attack_timer.start()
 	cultist_animations.flip_h = position.x < (Global.GameSize.x / 2)
 	self.add_to_group("Modifiers")
+	
+	var spawn_animation = Global.spawn_animation.instantiate()
+	spawn_animation.global_position = global_position
+	get_tree().current_scene.add_child(spawn_animation)
 
 func _on_attack_timer_timeout() -> void:
 	attack_timer.wait_time = randf_range(min_attack_cd, max_attack_cd)
