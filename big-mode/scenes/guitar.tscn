@@ -166,19 +166,19 @@ shape = SubResource("RectangleShape2D_g2qsy")
 position = Vector2(2, 49)
 
 [node name="PlayerSpawn2" type="Node2D" parent="Spawns" unique_id=2001248806 groups=["PlayerSpawn"]]
-position = Vector2(-63, 47)
+position = Vector2(-47, 47)
 
 [node name="PlayerSpawn3" type="Node2D" parent="Spawns" unique_id=2046445941 groups=["PlayerSpawn"]]
-position = Vector2(70, 49)
+position = Vector2(51, 47)
 
 [node name="PlayerSpawn4" type="Node2D" parent="Spawns" unique_id=1271414896 groups=["PlayerSpawn"]]
-position = Vector2(361, 135)
+position = Vector2(334, 155)
 
 [node name="PlayerSpawn5" type="Node2D" parent="Spawns" unique_id=1662362408 groups=["PlayerSpawn"]]
-position = Vector2(356, 2)
+position = Vector2(303, 1)
 
 [node name="PlayerSpawn6" type="Node2D" parent="Spawns" unique_id=2025139383 groups=["PlayerSpawn"]]
-position = Vector2(-324, 132)
+position = Vector2(-327, 150)
 
 [node name="PlayerSpawn7" type="Node2D" parent="Spawns" unique_id=1935052453 groups=["PlayerSpawn"]]
-position = Vector2(-328, 0)
+position = Vector2(-302, 1)

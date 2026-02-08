@@ -31,7 +31,7 @@ lick_music = "uid://dkpd1apflf8rw"
 lick_midi = "res://music/MIDI/100bpm_2.mid"
 bmp = 100
 difficulty = 2
-spawn_cultists_list = Array[int]([3, 5])
+spawn_cultists_list = Array[int]([5, 6])
 
 [node name="Lick_3" parent="Licks" unique_id=926797159 instance=ExtResource("4_ldfup")]
 lick_music = "uid://dkpd1apflf8rw"

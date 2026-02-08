@@ -32,6 +32,10 @@ func spawn_clones() -> void:
 	instance_clone.am_i_the_main_player = false
 	get_tree().current_scene.add_child(instance_clone)
 
+	for i in [1,2]:
+		var spawn_animation = Global.spawn_animation.instantiate()
+		spawn_animation.global_position = player_spawns[i].global_position
+		get_tree().current_scene.add_child(spawn_animation)
 
 func spawn_cultists() -> void:
 	for spawn in spawn_cultists_list:
